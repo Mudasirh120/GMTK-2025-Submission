@@ -6,6 +6,7 @@ extends CharacterBody2D
 @onready var AttackArea:Area2D=$Attack
 @onready var EnemyHitArea:Area2D= get_parent().get_node("Enemy").get_node("HitBox")
 @onready var Enemy:CharacterBody2D= get_parent().get_node("Enemy")
+@onready var att:CollisionPolygon2D=$Attack/attackbox
 const SPEED:int=100
 var Health:int= 100
 var isRunning: bool
@@ -20,8 +21,19 @@ func _ready() -> void:
 	print(EnemyHitArea)
 	print(Enemy)
 func _physics_process(delta: float) -> void:
+	att.disabled=true
 	if !isSurrendered:
+		if Input.is_action_pressed("Attack"):
+			att.disabled=false
 		var direction = Input.get_vector("move_left",'move_right','move_forward',"move_backward")
+		if direction.y>0:
+			att.rotation=90
+		elif direction.y<0:
+			att.rotation=-90
+		elif direction.x<0:
+			att.rotation=180
+		elif direction.x>0:
+			att.rotation=0
 		if Input.is_action_pressed("run"):
 			if direction != Vector2():
 				isRunning=true
