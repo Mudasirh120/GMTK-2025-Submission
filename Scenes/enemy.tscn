@@ -51,6 +51,7 @@ scale = Vector2(1.13793, 1.07273)
 text = "Health"
 
 [node name="Follow" type="NavigationAgent2D" parent="."]
+path_postprocessing = 1
 debug_enabled = true
 
 [connection signal="body_entered" from="VisualDetect" to="." method="_on_visual_detect_body_entered"]
