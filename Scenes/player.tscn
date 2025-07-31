@@ -1,10 +1,16 @@
-[gd_scene load_steps=4 format=3 uid="uid://gshrul3qv510"]
+[gd_scene load_steps=6 format=3 uid="uid://gshrul3qv510"]
 
 [ext_resource type="Script" uid="uid://cf3aakro3yb7d" path="res://player.gd" id="1_cvnsp"]
 [ext_resource type="Texture2D" uid="uid://cck1n4j8msmcf" path="res://icon.svg" id="1_v0iea"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_cvnsp"]
 radius = 79.0063
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_6t5aa"]
+radius = 93.2309
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_vgqql"]
+radius = 163.368
 
 [node name="Player" type="CharacterBody2D"]
 script = ExtResource("1_cvnsp")
@@ -19,16 +25,22 @@ position = Vector2(-1, 0)
 shape = SubResource("CircleShape2D_cvnsp")
 
 [node name="Hitbox" type="Area2D" parent="."]
+visible = false
 
-[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Hitbox"]
-polygon = PackedVector2Array(-15, 14, -83, 15, -102, -46, -58, -100, 58, -101, 96, -50, 95, 50, 58, 86, -51, 85, -91, 55, -87, 21)
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Hitbox"]
+shape = SubResource("CircleShape2D_6t5aa")
 
 [node name="Attack" type="Area2D" parent="."]
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Attack"]
-position = Vector2(28.8393, 6.44531)
+position = Vector2(30, 9)
 scale = Vector2(1.38736, 1.11816)
-polygon = PackedVector2Array(18, -19, 40.4802, -64.7895, 103.91, -63.8952, 104.631, 48.7895, 41.9218, 47.8952, 18.1356, 6.75634)
+polygon = PackedVector2Array(18, -19, 22.3446, -61.7083, 44.6891, -74.2288, 94.4238, -67.9685, 97.3069, 49.1878, 41.9218, 47.8952, 22.3446, 40.2445, 18.1356, 6.75634)
+
+[node name="Sound" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Sound"]
+shape = SubResource("CircleShape2D_vgqql")
 
 [node name="RunningTimer" type="Timer" parent="."]
 wait_time = 0.5
@@ -54,4 +66,5 @@ offset_right = 146.0
 offset_bottom = 11.0
 text = "Health"
 
+[connection signal="area_entered" from="Attack" to="." method="_on_attack_area_entered"]
 [connection signal="timeout" from="RunningTimer" to="." method="_on_running_timer_timeout"]

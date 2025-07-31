@@ -1,11 +1,16 @@
-[gd_scene load_steps=3 format=3 uid="uid://cdn5oj11h0t81"]
+[gd_scene load_steps=5 format=3 uid="uid://cdn5oj11h0t81"]
 
+[ext_resource type="Script" uid="uid://xrpq37mkieb7" path="res://Scenes/enemy.gd" id="1_1f0kj"]
 [ext_resource type="Texture2D" uid="uid://cck1n4j8msmcf" path="res://icon.svg" id="1_hghv2"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_1f0kj"]
 radius = 79.0253
 
+[sub_resource type="CircleShape2D" id="CircleShape2D_afpow"]
+radius = 75.7962
+
 [node name="Enemy" type="CharacterBody2D"]
+script = ExtResource("1_1f0kj")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 modulate = Color(0.87678, 0, 0.175153, 1)
@@ -14,3 +19,23 @@ texture = ExtResource("1_hghv2")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(-1, 0)
 shape = SubResource("CircleShape2D_1f0kj")
+
+[node name="Attack" type="Area2D" parent="."]
+
+[node name="HitBox" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="HitBox"]
+scale = Vector2(1.48, 1.48)
+shape = SubResource("CircleShape2D_afpow")
+
+[node name="VisualDetect" type="Area2D" parent="."]
+
+[node name="SoundDetect" type="Area2D" parent="."]
+
+[node name="Health" type="Label" parent="."]
+offset_left = -19.0
+offset_top = -89.0
+offset_right = 21.0
+offset_bottom = -66.0
+scale = Vector2(1.13793, 1.07273)
+text = "Health"

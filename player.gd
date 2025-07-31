@@ -3,6 +3,9 @@ extends CharacterBody2D
 @onready var StaminaText:Label = $Stamina
 @onready var HealthText:Label = $Health
 @onready var TotalSpeed:Label = $TotalSpeed
+@onready var AttackArea:Area2D=$Attack
+@onready var EnemyHitArea:Area2D= get_parent().get_node("Enemy").get_node("HitBox")
+@onready var Enemy:CharacterBody2D= get_parent().get_node("Enemy")
 const SPEED:int=100
 var Health:int= 100
 var isRunning: bool
@@ -14,6 +17,8 @@ func _ready() -> void:
 	isRunning=false
 	dodgeDashAvailable= true
 	RunningTimer.start()
+	print(EnemyHitArea)
+	print(Enemy)
 func _physics_process(delta: float) -> void:
 	if !isSurrendered:
 		var direction = Input.get_vector("move_left",'move_right','move_forward',"move_backward")
@@ -53,3 +58,9 @@ func Surrender():
 func dodgeDash():
 		totalCommulativeSpeed=SPEED*100
 		Stamina-=0.6
+		
+
+func _on_attack_area_entered(area: Area2D) -> void:
+	if area == EnemyHitArea:
+		print("Yeah")
+		Enemy.gotHit()
