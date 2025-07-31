@@ -54,5 +54,7 @@ text = "Health"
 path_postprocessing = 1
 debug_enabled = true
 
+[node name="RayCast2D" type="RayCast2D" parent="."]
+
 [connection signal="body_entered" from="VisualDetect" to="." method="_on_visual_detect_body_entered"]
 [connection signal="area_entered" from="SoundDetect" to="." method="_on_sound_detect_area_entered"]
