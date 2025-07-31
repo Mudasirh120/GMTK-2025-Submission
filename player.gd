@@ -7,6 +7,7 @@ extends CharacterBody2D
 @onready var EnemyHitArea:Area2D= get_parent().get_node("Enemy").get_node("HitBox")
 @onready var Enemy:CharacterBody2D= get_parent().get_node("Enemy")
 @onready var att:CollisionPolygon2D=$Attack/attackbox
+var direction 
 const SPEED:int=100
 var Health:int= 100
 var isRunning: bool
@@ -25,15 +26,8 @@ func _physics_process(delta: float) -> void:
 	if !isSurrendered:
 		if Input.is_action_pressed("Attack"):
 			att.disabled=false
-		var direction = Input.get_vector("move_left",'move_right','move_forward',"move_backward")
-		if direction.y>0:
-			att.rotation=90
-		elif direction.y<0:
-			att.rotation=-90
-		elif direction.x<0:
-			att.rotation=180
-		elif direction.x>0:
-			att.rotation=0
+		direction = Input.get_vector("move_left",'move_right','move_forward',"move_backward")
+		attackdir()
 		if Input.is_action_pressed("run"):
 			if direction != Vector2():
 				isRunning=true
@@ -71,7 +65,15 @@ func dodgeDash():
 		totalCommulativeSpeed=SPEED*100
 		Stamina-=0.6
 		
-
+func attackdir():
+	if direction.y>0:
+		att.rotation=90
+	elif direction.y<0:
+		att.rotation=-90
+	elif direction.x<0:
+		att.rotation=180
+	elif direction.x>0:
+		att.rotation=0
 func _on_attack_area_entered(area: Area2D) -> void:
 	if area == EnemyHitArea:
 		print("Yeah")
