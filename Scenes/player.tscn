@@ -1,31 +1,56 @@
-[gd_scene load_steps=3 format=3 uid="uid://gshrul3qv510"]
+[gd_scene load_steps=4 format=3 uid="uid://gshrul3qv510"]
 
 [ext_resource type="Script" uid="uid://cf3aakro3yb7d" path="res://player.gd" id="1_cvnsp"]
 [ext_resource type="Texture2D" uid="uid://cck1n4j8msmcf" path="res://icon.svg" id="1_v0iea"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_cvnsp"]
+radius = 63.7887
 
 [node name="Player" type="CharacterBody2D"]
 script = ExtResource("1_cvnsp")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-position = Vector2(70, 62)
+position = Vector2(-2, -1)
 texture = ExtResource("1_v0iea")
 
-[node name="Timer" type="Timer" parent="."]
-wait_time = 0.3
-autostart = true
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-2, -1)
+shape = SubResource("CircleShape2D_cvnsp")
+
+[node name="Hitbox" type="Area2D" parent="."]
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Hitbox"]
+polygon = PackedVector2Array(-15, 14, -83, 15, -102, -46, -58, -100, 58, -101, 96, -50, 95, 50, 58, 86, -51, 85, -91, 55, -87, 21)
+
+[node name="Attack" type="Area2D" parent="."]
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Attack"]
+position = Vector2(28.8393, 6.44531)
+scale = Vector2(1.38736, 1.11816)
+polygon = PackedVector2Array(18, -19, 40.4802, -64.7895, 103.91, -63.8952, 104.631, 48.7895, 41.9218, 47.8952, 18.1356, 6.75634)
+
+[node name="RunningTimer" type="Timer" parent="."]
+wait_time = 0.5
 
 [node name="Stamina" type="Label" parent="."]
-offset_left = 23.0
-offset_top = -26.0
-offset_right = 117.0
-offset_bottom = 8.0
+offset_left = -41.0
+offset_top = -87.0
+offset_right = 53.0
+offset_bottom = -53.0
 text = "Stamina"
 
 [node name="TotalSpeed" type="Label" parent="."]
-offset_left = 40.0
-offset_top = 117.0
-offset_right = 107.0
-offset_bottom = 140.0
+offset_left = -31.0
+offset_top = 57.0
+offset_right = 36.0
+offset_bottom = 80.0
 text = "Speed"
 
-[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
+[node name="Health" type="Label" parent="."]
+offset_left = 69.0
+offset_top = -12.0
+offset_right = 146.0
+offset_bottom = 11.0
+text = "Health"
+
+[connection signal="timeout" from="RunningTimer" to="." method="_on_running_timer_timeout"]
