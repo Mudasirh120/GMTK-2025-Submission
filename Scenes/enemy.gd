@@ -54,3 +54,8 @@ func _physics_process(delta: float) -> void:
 	else:
 		velocity = Vector2()
 	move_and_slide()
+
+
+func _on_sound_detect_area_entered(area: Area2D):
+	if area.is_in_group("splayer"):
+		print("detected by sound")

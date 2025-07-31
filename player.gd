@@ -7,6 +7,10 @@ extends CharacterBody2D
 @onready var EnemyHitArea:Area2D= get_parent().get_node("Enemy").get_node("HitBox")
 @onready var Enemy:CharacterBody2D= get_parent().get_node("Enemy")
 @onready var att:CollisionPolygon2D=$Attack/attackbox
+@onready var soun:CollisionShape2D=$Sound/CollisionShape2D
+@onready var attackcooldown:Timer=$attcooldown
+var attcool:bool=false
+var base:Vector2
 var direction 
 const SPEED:int=100
 var Health:int= 100
@@ -21,19 +25,33 @@ func _ready() -> void:
 	RunningTimer.start()
 	print(EnemyHitArea)
 	print(Enemy)
+	base=Vector2(1.0,1.0)
 func _physics_process(delta: float) -> void:
+	soun.scale=base
+	soun.disabled=true
 	att.disabled=true
 	if !isSurrendered:
-		if Input.is_action_pressed("Attack"):
+		if Input.is_action_pressed("Attack") and attcool==false:
+			attcool=true
+			attackcooldown.start()
+			soun.disabled=false
 			att.disabled=false
+			soun.scale*=3
+			
 		direction = Input.get_vector("move_left",'move_right','move_forward',"move_backward")
+		if direction:
+			soun.disabled=false
 		attackdir()
 		if Input.is_action_pressed("run"):
 			if direction != Vector2():
+				if direction:
+					soun.scale*=2
 				isRunning=true
 				totalCommulativeSpeed = (SPEED * 2) * Stamina
 		elif Input.is_action_pressed('sneak'):
 			totalCommulativeSpeed = SPEED * 0.3
+			if direction:
+				soun.scale/=3
 		elif Input.is_action_just_released("dash"):
 			if dodgeDashAvailable:
 				dodgeDashAvailable=false
@@ -64,7 +82,8 @@ func Surrender():
 func dodgeDash():
 		totalCommulativeSpeed=SPEED*100
 		Stamina-=0.6
-		
+		soun.disabled=false
+		soun.scale*=3
 func attackdir():
 	if direction.y>0:
 		att.rotation=90
@@ -100,3 +119,7 @@ func _on_attack_area_entered(area: Area2D) -> void:
 
 
 var isSeen=false
+
+
+func _on_attcooldown_timeout() -> void:
+	attcool=false

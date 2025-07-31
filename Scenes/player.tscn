@@ -37,7 +37,7 @@ position = Vector2(30, 9)
 scale = Vector2(1.38736, 1.11816)
 polygon = PackedVector2Array(18, -19, 22.3446, -61.7083, 44.6891, -74.2288, 94.4238, -67.9685, 97.3069, 49.1878, 41.9218, 47.8952, 22.3446, 40.2445, 18.1356, 6.75634)
 
-[node name="Sound" type="Area2D" parent="."]
+[node name="Sound" type="Area2D" parent="." groups=["splayer"]]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Sound"]
 shape = SubResource("CircleShape2D_vgqql")
@@ -66,5 +66,9 @@ offset_right = 146.0
 offset_bottom = 11.0
 text = "Health"
 
+[node name="attcooldown" type="Timer" parent="."]
+wait_time = 0.25
+
 [connection signal="area_entered" from="Attack" to="." method="_on_attack_area_entered"]
 [connection signal="timeout" from="RunningTimer" to="." method="_on_running_timer_timeout"]
+[connection signal="timeout" from="attcooldown" to="." method="_on_attcooldown_timeout"]

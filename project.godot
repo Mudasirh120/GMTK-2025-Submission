@@ -22,6 +22,7 @@ project/assembly_name="New Game Project"
 [global_group]
 
 Player=""
+splayer=""
 
 [input]
 

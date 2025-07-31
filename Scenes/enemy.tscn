@@ -1,4 +1,4 @@
-[gd_scene load_steps=5 format=3 uid="uid://cdn5oj11h0t81"]
+[gd_scene load_steps=6 format=3 uid="uid://cdn5oj11h0t81"]
 
 [ext_resource type="Script" uid="uid://xrpq37mkieb7" path="res://Scenes/enemy.gd" id="1_1f0kj"]
 [ext_resource type="Texture2D" uid="uid://cck1n4j8msmcf" path="res://icon.svg" id="1_hghv2"]
@@ -7,7 +7,10 @@
 radius = 79.0253
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_afpow"]
-radius = 75.7962
+radius = 61.6681
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_287tu"]
+radius = 105.262
 
 [node name="Enemy" type="CharacterBody2D"]
 script = ExtResource("1_1f0kj")
@@ -36,6 +39,9 @@ polygon = PackedVector2Array(15, -17, 53, -63, 465, -205, 472, 184, 57, 61, 15, 
 
 [node name="SoundDetect" type="Area2D" parent="."]
 
+[node name="CollisionShape2D" type="CollisionShape2D" parent="SoundDetect"]
+shape = SubResource("CircleShape2D_287tu")
+
 [node name="Health" type="Label" parent="."]
 offset_left = -19.0
 offset_top = -89.0
@@ -48,3 +54,4 @@ text = "Health"
 debug_enabled = true
 
 [connection signal="body_entered" from="VisualDetect" to="." method="_on_visual_detect_body_entered"]
+[connection signal="area_entered" from="SoundDetect" to="." method="_on_sound_detect_area_entered"]
