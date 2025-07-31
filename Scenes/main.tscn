@@ -1,7 +1,8 @@
-[gd_scene load_steps=3 format=3 uid="uid://bkoptsr418n5"]
+[gd_scene load_steps=4 format=3 uid="uid://bkoptsr418n5"]
 
 [ext_resource type="PackedScene" uid="uid://gshrul3qv510" path="res://Scenes/player.tscn" id="1_jjgbg"]
 [ext_resource type="PackedScene" uid="uid://cdn5oj11h0t81" path="res://Scenes/enemy.tscn" id="2_bo1nx"]
+[ext_resource type="PackedScene" uid="uid://dd3ukmhyrk02n" path="res://Scenes/next_level.tscn" id="3_8gbba"]
 
 [node name="Main" type="Node2D"]
 
@@ -14,3 +15,6 @@ motion_mode = 1
 position = Vector2(760, 482)
 scale = Vector2(0.63654, 0.63654)
 motion_mode = 1
+
+[node name="NextLevel" parent="." instance=ExtResource("3_8gbba")]
+position = Vector2(374, 335)
