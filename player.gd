@@ -77,3 +77,26 @@ func attackdir():
 func _on_attack_area_entered(area: Area2D) -> void:
 	if area == EnemyHitArea:
 		Enemy.gotHit()
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+var isSeen=false

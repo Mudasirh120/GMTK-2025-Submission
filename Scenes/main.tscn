@@ -1,20 +1,28 @@
-[gd_scene load_steps=4 format=3 uid="uid://bkoptsr418n5"]
+[gd_scene load_steps=5 format=3 uid="uid://bkoptsr418n5"]
 
 [ext_resource type="PackedScene" uid="uid://gshrul3qv510" path="res://Scenes/player.tscn" id="1_jjgbg"]
 [ext_resource type="PackedScene" uid="uid://cdn5oj11h0t81" path="res://Scenes/enemy.tscn" id="2_bo1nx"]
 [ext_resource type="PackedScene" uid="uid://dd3ukmhyrk02n" path="res://Scenes/next_level.tscn" id="3_8gbba"]
 
-[node name="Main" type="Node2D"]
+[sub_resource type="NavigationPolygon" id="NavigationPolygon_8gbba"]
+vertices = PackedVector2Array(2123.07, 1003.32, -414.391, 1085.65, -326.547, -450.063, 2133.92, -466.93)
+polygons = Array[PackedInt32Array]([PackedInt32Array(0, 1, 2, 3)])
+outlines = Array[PackedVector2Array]([PackedVector2Array(-336, -460, 2144, -477, 2133, 1013, -425, 1096)])
 
-[node name="Player" parent="." instance=ExtResource("1_jjgbg")]
+[node name="NavigationRegion2D" type="NavigationRegion2D"]
+navigation_polygon = SubResource("NavigationPolygon_8gbba")
+
+[node name="Main" type="Node2D" parent="."]
+
+[node name="Player" parent="Main" instance=ExtResource("1_jjgbg")]
 position = Vector2(576, 487)
 scale = Vector2(0.501078, 0.501078)
 motion_mode = 1
 
-[node name="Enemy" parent="." instance=ExtResource("2_bo1nx")]
+[node name="Enemy" parent="Main" instance=ExtResource("2_bo1nx")]
 position = Vector2(760, 482)
 scale = Vector2(0.63654, 0.63654)
 motion_mode = 1
 
-[node name="NextLevel" parent="." instance=ExtResource("3_8gbba")]
+[node name="NextLevel" parent="Main" instance=ExtResource("3_8gbba")]
 position = Vector2(374, 335)

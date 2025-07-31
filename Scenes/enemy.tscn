@@ -30,6 +30,10 @@ shape = SubResource("CircleShape2D_afpow")
 
 [node name="VisualDetect" type="Area2D" parent="."]
 
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="VisualDetect"]
+position = Vector2(-15, 1)
+polygon = PackedVector2Array(15, -17, 53, -63, 465, -205, 472, 184, 57, 61, 15, 14)
+
 [node name="SoundDetect" type="Area2D" parent="."]
 
 [node name="Health" type="Label" parent="."]
@@ -39,3 +43,8 @@ offset_right = 21.0
 offset_bottom = -66.0
 scale = Vector2(1.13793, 1.07273)
 text = "Health"
+
+[node name="Follow" type="NavigationAgent2D" parent="."]
+debug_enabled = true
+
+[connection signal="body_entered" from="VisualDetect" to="." method="_on_visual_detect_body_entered"]
