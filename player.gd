@@ -76,5 +76,4 @@ func attackdir():
 		att.rotation=0
 func _on_attack_area_entered(area: Area2D) -> void:
 	if area == EnemyHitArea:
-		print("Yeah")
 		Enemy.gotHit()
