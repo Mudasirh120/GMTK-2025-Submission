@@ -35,7 +35,7 @@ shape = SubResource("CircleShape2D_6t5aa")
 [node name="attackbox" type="CollisionPolygon2D" parent="Attack"]
 position = Vector2(30, 9)
 scale = Vector2(1.38736, 1.11816)
-polygon = PackedVector2Array(18, -19, 22.3446, -61.7083, 44.6891, -74.2288, 94.4238, -67.9685, 97.3069, 49.1878, 41.9218, 47.8952, 22.3446, 40.2445, 18.1356, 6.75634)
+polygon = PackedVector2Array(16.5782, -20.5695, 22.3446, -61.7083, 44.6891, -74.2288, 100.19, -69.7575, 111.002, -8.94326, 100.19, 48.2936, 41.9218, 47.8952, 22.3446, 40.2445, 18.1356, 6.75634)
 
 [node name="Sound" type="Area2D" parent="."]
 

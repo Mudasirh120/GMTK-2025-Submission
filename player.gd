@@ -8,7 +8,7 @@ extends CharacterBody2D
 @onready var Enemy:CharacterBody2D= get_parent().get_node("Enemy")
 @onready var att:CollisionPolygon2D=$Attack/attackbox
 var direction 
-const SPEED:int=100
+const SPEED:int=400
 var Health:int= 100
 var isRunning: bool
 var Stamina :float= 1.0
