@@ -51,11 +51,16 @@ func _physics_process(delta: float) -> void:
 		Agent.target_position = Player.global_position
 		var direction = (Agent.get_next_path_position() - global_position).normalized()
 		velocity = direction * SPEED
+		
 	else:
 		velocity = Vector2()
 	move_and_slide()
-
+var dist
 
 func _on_sound_detect_area_entered(area: Area2D):
 	if area.is_in_group("splayer"):
-		look_at(area.global_position)
+		Agent.target_position=area.global_position
+		dist=Agent.distance_to_target()
+		print(dist)
+		if dist <500:
+			look_at(area.global_position)

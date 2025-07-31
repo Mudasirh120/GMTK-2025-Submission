@@ -12,7 +12,7 @@ extends CharacterBody2D
 var attcool:bool=false
 var base:Vector2
 var direction 
-const SPEED:int=100
+const SPEED:int=400
 var Health:int= 100
 var isRunning: bool
 var Stamina :float= 1.0
