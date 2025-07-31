@@ -11,21 +11,14 @@ position = Vector2(70, 62)
 texture = ExtResource("1_v0iea")
 
 [node name="Timer" type="Timer" parent="."]
-wait_time = 0.3
+wait_time = 0.1
 autostart = true
 
-[node name="Stamina" type="Label" parent="."]
+[node name="Label" type="Label" parent="."]
 offset_left = 23.0
 offset_top = -26.0
 offset_right = 117.0
 offset_bottom = 8.0
 text = "Stamina"
-
-[node name="TotalSpeed" type="Label" parent="."]
-offset_left = 40.0
-offset_top = 117.0
-offset_right = 107.0
-offset_bottom = 140.0
-text = "Speed"
 
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
