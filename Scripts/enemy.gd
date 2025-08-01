@@ -9,38 +9,6 @@ func gotHit():
 		die()
 func die():
 	queue_free()
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 @onready var Agent:NavigationAgent2D=$Follow
 @onready var Ray:RayCast2D=$RayCast2D
 @onready var VisDetect:=$VisualDetect
@@ -67,9 +35,7 @@ func _physics_process(delta: float):
 	if tims==true:
 		soun.disabled=true
 	if heard:
-		
 		followvoice()
-		
 		direction = (Agent.get_next_path_position() - global_position).normalized()
 		velocity = direction * SPEED
 	if isFollowing and Player.isSeen:
@@ -106,8 +72,7 @@ func _on_sound_detect_area_entered(area: Area2D):
 			if dist <500:
 				heard=true
 func followvoice():
-	Agent.target_position=lastheard
-	
+	Agent.target_position=lastheard	
 func FollowPlayer():
 		Agent.target_position = Player.global_position
 		lastSeenPos=Player.global_position
@@ -117,8 +82,6 @@ func GoToLastSeen():
 func lookArround():
 	print("Kahan dekhna")
 	VisDetect.rotation += deg_to_rad(45) * get_process_delta_time()
-
-
 func _on_sontim_timeout() -> void:
 	tims=false
 	soun.disabled=false
