@@ -23,6 +23,8 @@ project/assembly_name="New Game Project"
 
 Player=""
 splayer=""
+istorch=""
+enemy=""
 
 [input]
 
