@@ -10,7 +10,7 @@ radius = 79.0063
 radius = 93.2309
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_vgqql"]
-radius = 396.376
+radius = 681.036
 
 [node name="Player" type="CharacterBody2D" groups=["Player"]]
 script = ExtResource("1_cvnsp")

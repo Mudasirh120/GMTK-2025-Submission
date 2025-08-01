@@ -5,24 +5,30 @@
 [ext_resource type="PackedScene" uid="uid://dd3ukmhyrk02n" path="res://Scenes/next_level.tscn" id="3_8gbba"]
 
 [sub_resource type="NavigationPolygon" id="NavigationPolygon_8gbba"]
-vertices = PackedVector2Array(2123.07, 1003.32, -414.391, 1085.65, -326.547, -450.063, 2133.92, -466.93)
-polygons = Array[PackedInt32Array]([PackedInt32Array(0, 1, 2, 3)])
-outlines = Array[PackedVector2Array]([PackedVector2Array(-336, -460, 2144, -477, 2133, 1013, -425, 1096)])
+vertices = PackedVector2Array(-320.063, -445.977, 2287.18, 165.344, 683.492, 785.023, 548.922, 869.641, 306.602, 1223.49)
+polygons = Array[PackedInt32Array]([PackedInt32Array(0, 1, 2), PackedInt32Array(3, 4, 0), PackedInt32Array(0, 2, 3)])
+outlines = Array[PackedVector2Array]([PackedVector2Array(-336, -460, 2321, 163, 688, 794, 556, 877, 304, 1245)])
 
 [node name="NavigationRegion2D" type="NavigationRegion2D"]
 navigation_polygon = SubResource("NavigationPolygon_8gbba")
+use_edge_connections = false
 
 [node name="Main" type="Node2D" parent="."]
 
 [node name="Player" parent="Main" instance=ExtResource("1_jjgbg")]
-position = Vector2(576, 487)
+position = Vector2(310, 478)
 scale = Vector2(0.501078, 0.501078)
 motion_mode = 1
 
 [node name="Enemy" parent="Main" instance=ExtResource("2_bo1nx")]
 position = Vector2(760, 482)
 scale = Vector2(0.63654, 0.63654)
-motion_mode = 1
 
 [node name="NextLevel" parent="Main" instance=ExtResource("3_8gbba")]
 position = Vector2(374, 335)
+
+[node name="NavigationObstacle2D" type="NavigationObstacle2D" parent="."]
+position = Vector2(374, 335)
+vertices = PackedVector2Array(91, -93, 98, 43, 99, 98, -95, 98, -112, 22, -100, -94)
+affect_navigation_mesh = true
+carve_navigation_mesh = true
