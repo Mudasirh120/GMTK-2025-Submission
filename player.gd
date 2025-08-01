@@ -86,13 +86,13 @@ func dodgeDash():
 		soun.scale*=3
 func attackdir():
 	if direction.y>0:
-		att.rotation=90
+		att.rotation=deg_to_rad(90)
 	elif direction.y<0:
-		att.rotation=-90
+		att.rotation=deg_to_rad(-90)
 	elif direction.x<0:
-		att.rotation=180
+		att.rotation=deg_to_rad(180)
 	elif direction.x>0:
-		att.rotation=0
+		att.rotation=deg_to_rad(0)
 func _on_attack_area_entered(area: Area2D) -> void:
 	if area == EnemyHitArea:
 		Enemy.gotHit()

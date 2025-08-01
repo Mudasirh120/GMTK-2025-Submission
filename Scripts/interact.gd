@@ -1,7 +1,7 @@
 extends RayCast2D
 @onready var player:CharacterBody2D=get_parent().get_parent().get_node("Player")
-@onready var ray:RayCast2D=$interactable
-func _physics_process(delta: float) -> void:
+@onready var ray:RayCast2D=get_parent().get_node("interactable")
+func _physics_process(delta: float):
 	if Input.is_action_just_released("interact"):
 		ray.target_position=player.global_position+Vector2(0,100)
 		print(ray.target_position)

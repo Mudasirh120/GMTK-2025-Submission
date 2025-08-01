@@ -34,23 +34,25 @@ shape = SubResource("CircleShape2D_6t5aa")
 [node name="Attack" type="Area2D" parent="."]
 
 [node name="attackbox" type="CollisionPolygon2D" parent="Attack"]
-position = Vector2(30, 9)
-scale = Vector2(1.38736, 1.11816)
+position = Vector2(20, -18)
+scale = Vector2(1.38736, 1.35944)
 polygon = PackedVector2Array(16.5782, -20.5695, 22.3446, -61.7083, 44.6891, -74.2288, 100.19, -69.7575, 111.002, -8.94326, 100.19, 48.2936, 41.9218, 47.8952, 22.3446, 40.2445, 18.1356, 6.75634)
 
 [node name="Sound" type="Area2D" parent="." groups=["splayer"]]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Sound"]
+position = Vector2(4, 2)
 shape = SubResource("CircleShape2D_vgqql")
+metadata/_edit_lock_ = true
 
 [node name="RunningTimer" type="Timer" parent="."]
 wait_time = 0.5
 
 [node name="Stamina" type="Label" parent="."]
-offset_left = -41.0
-offset_top = -87.0
-offset_right = 53.0
-offset_bottom = -53.0
+offset_left = -44.0
+offset_top = -96.0
+offset_right = 50.0
+offset_bottom = -62.0
 text = "Stamina"
 
 [node name="TotalSpeed" type="Label" parent="."]
@@ -72,7 +74,6 @@ wait_time = 0.25
 
 [node name="interactable" type="RayCast2D" parent="."]
 position = Vector2(-1, 0)
-target_position = Vector2(-11, -39)
 script = ExtResource("3_6t5aa")
 
 [connection signal="area_entered" from="Attack" to="." method="_on_attack_area_entered"]

@@ -70,7 +70,7 @@ func _physics_process(delta: float) -> void:
 		direction = (Agent.get_next_path_position() - global_position).normalized()
 		velocity = direction * SPEED
 	if isFollowing and Player.isSeen:
-		Ray.target_position=Player.global_position - global_position
+		Ray.target_position=(Player.global_position-global_position).normalized()
 		if stillcansee:
 			FollowPlayer()
 		if Ray.is_colliding() and Ray.get_collider() != Player:
