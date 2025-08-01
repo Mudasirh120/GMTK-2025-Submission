@@ -1,4 +1,6 @@
-[gd_scene load_steps=3 format=3 uid="uid://dhkj77kvhfj7"]
+[gd_scene load_steps=5 format=3 uid="uid://dhkj77kvhfj7"]
+
+[ext_resource type="Script" uid="uid://dgsbehrylcw0y" path="res://Scenes/torch.gd" id="1_wced7"]
 
 [sub_resource type="Gradient" id="Gradient_h1t0l"]
 offsets = PackedFloat32Array(0.0454545, 0.753247)
@@ -10,9 +12,20 @@ fill = 1
 fill_from = Vector2(0.490826, 0.495413)
 fill_to = Vector2(1, 1)
 
+[sub_resource type="CircleShape2D" id="CircleShape2D_h1t0l"]
+radius = 2.53645
+
 [node name="Torch" type="PointLight2D"]
 position = Vector2(320, 194)
 scale = Vector2(2.75977, 2.00781)
 energy = 4.81
 shadow_enabled = true
 texture = SubResource("GradientTexture2D_beu3c")
+script = ExtResource("1_wced7")
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+shape = SubResource("CircleShape2D_h1t0l")
+
+[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
