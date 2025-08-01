@@ -40,8 +40,11 @@ polygon = PackedVector2Array(15, -17, 53, -63, 465, -205, 472, 184, 57, 61, 15, 
 
 [node name="SoundDetect" type="Area2D" parent="."]
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="SoundDetect"]
+[node name="sound" type="CollisionShape2D" parent="SoundDetect"]
 shape = SubResource("CircleShape2D_287tu")
+
+[node name="sontim" type="Timer" parent="SoundDetect"]
+wait_time = 0.25
 
 [node name="Health" type="Label" parent="."]
 offset_left = -19.0
@@ -58,3 +61,4 @@ debug_enabled = true
 
 [connection signal="body_entered" from="VisualDetect" to="." method="_on_visual_detect_body_entered"]
 [connection signal="area_entered" from="SoundDetect" to="." method="_on_sound_detect_area_entered"]
+[connection signal="timeout" from="SoundDetect/sontim" to="." method="_on_sontim_timeout"]

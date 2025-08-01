@@ -5,9 +5,9 @@
 [ext_resource type="PackedScene" uid="uid://cese0ase0h2vr" path="res://Scenes/next_level.tscn" id="3_8gbba"]
 
 [sub_resource type="NavigationPolygon" id="NavigationPolygon_8gbba"]
-vertices = PackedVector2Array(-320.063, -445.977, 2287.18, 165.344, 683.492, 785.023, 548.922, 869.641, 306.602, 1223.49)
-polygons = Array[PackedInt32Array]([PackedInt32Array(0, 1, 2), PackedInt32Array(3, 4, 0), PackedInt32Array(0, 2, 3)])
-outlines = Array[PackedVector2Array]([PackedVector2Array(-336, -460, 2321, 163, 688, 794, 556, 877, 304, 1245)])
+vertices = PackedVector2Array(-320.063, -445.977, 2238.64, 153.961, 1224.08, 165.859, 517.844, 434.594, 307.438, 1225.73, 245.133, 472.609, 266.703, 177.109, 493.711, 174.438)
+polygons = Array[PackedInt32Array]([PackedInt32Array(0, 1, 2), PackedInt32Array(3, 2, 4), PackedInt32Array(5, 3, 4), PackedInt32Array(5, 4, 0), PackedInt32Array(6, 5, 0), PackedInt32Array(2, 3, 7), PackedInt32Array(0, 2, 7), PackedInt32Array(0, 7, 6)])
+outlines = Array[PackedVector2Array]([PackedVector2Array(-336, -460, 2321, 163, 276, 187, 256, 461, 507, 426, 484, 178, 1232, 172, 304, 1245)])
 
 [node name="NavigationRegion2D" type="NavigationRegion2D"]
 navigation_polygon = SubResource("NavigationPolygon_8gbba")
@@ -16,7 +16,7 @@ use_edge_connections = false
 [node name="Main" type="Node2D" parent="."]
 
 [node name="Player" parent="Main" instance=ExtResource("1_jjgbg")]
-position = Vector2(310, 478)
+position = Vector2(216, 329)
 scale = Vector2(0.501078, 0.501078)
 motion_mode = 1
 
