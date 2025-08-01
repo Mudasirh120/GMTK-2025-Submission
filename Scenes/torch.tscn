@@ -1,0 +1,18 @@
+[gd_scene load_steps=3 format=3 uid="uid://dhkj77kvhfj7"]
+
+[sub_resource type="Gradient" id="Gradient_h1t0l"]
+offsets = PackedFloat32Array(0.0454545, 0.753247)
+colors = PackedColorArray(1, 1, 1, 1, 0.056338, 0.056338, 0.056338, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_beu3c"]
+gradient = SubResource("Gradient_h1t0l")
+fill = 1
+fill_from = Vector2(0.490826, 0.495413)
+fill_to = Vector2(1, 1)
+
+[node name="Torch" type="PointLight2D"]
+position = Vector2(320, 194)
+scale = Vector2(2.75977, 2.00781)
+energy = 4.81
+shadow_enabled = true
+texture = SubResource("GradientTexture2D_beu3c")
