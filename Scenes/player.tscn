@@ -1,7 +1,8 @@
-[gd_scene load_steps=6 format=3 uid="uid://gshrul3qv510"]
+[gd_scene load_steps=7 format=3 uid="uid://gshrul3qv510"]
 
 [ext_resource type="Script" uid="uid://cf3aakro3yb7d" path="res://player.gd" id="1_cvnsp"]
 [ext_resource type="Texture2D" uid="uid://cck1n4j8msmcf" path="res://icon.svg" id="1_v0iea"]
+[ext_resource type="Script" uid="uid://b0kt1gd6gp1fr" path="res://Scripts/interact.gd" id="3_6t5aa"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_cvnsp"]
 radius = 79.0063
@@ -68,6 +69,11 @@ text = "Health"
 
 [node name="attcooldown" type="Timer" parent="."]
 wait_time = 0.25
+
+[node name="interactable" type="RayCast2D" parent="."]
+position = Vector2(-1, 0)
+target_position = Vector2(-11, -39)
+script = ExtResource("3_6t5aa")
 
 [connection signal="area_entered" from="Attack" to="." method="_on_attack_area_entered"]
 [connection signal="timeout" from="RunningTimer" to="." method="_on_running_timer_timeout"]
