@@ -59,8 +59,8 @@ func _on_visual_detect_body_entered(body: Node2D) -> void:
 		isFollowing=true
 		body.isSeen = true
 		Player=body
-func _physics_process(delta: float) -> void:
-	
+func _physics_process(delta: float):
+	Ray.global_rotation_degrees=0
 	if tims==true:
 		soun.disabled=true
 	if heard:
@@ -70,7 +70,8 @@ func _physics_process(delta: float) -> void:
 		direction = (Agent.get_next_path_position() - global_position).normalized()
 		velocity = direction * SPEED
 	if isFollowing and Player.isSeen:
-		Ray.target_position=(Player.global_position-global_position).normalized()
+		Ray.target_position=Player.global_position-global_position
+		heard=false
 		if stillcansee:
 			FollowPlayer()
 		if Ray.is_colliding() and Ray.get_collider() != Player:
@@ -89,17 +90,18 @@ func _physics_process(delta: float) -> void:
 var dist
 
 func _on_sound_detect_area_entered(area: Area2D):
-	if area.is_in_group("splayer"):
-		Agent.target_position=area.global_position
-		dist=Agent.distance_to_target()
-		print(dist)
-		if dist <700:
-			sontim.start()
-			tims=true
-			lastheard=area.global_position
-			look_at(area.global_position)
-		if dist <500:
-			heard=true
+	if !stillcansee:
+		if area.is_in_group("splayer"):
+			Agent.target_position=area.global_position
+			dist=Agent.distance_to_target()
+			print(dist)
+			if dist <700:
+				sontim.start()
+				tims=true
+				lastheard=area.global_position
+				look_at(area.global_position)
+			if dist <500:
+				heard=true
 func followvoice():
 	Agent.target_position=lastheard
 	
