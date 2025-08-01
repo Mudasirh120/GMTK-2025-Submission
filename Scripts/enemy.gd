@@ -3,9 +3,12 @@ const SPEED:int=100
 var Health:int= 100
 @onready var healthbar:Label=$Health
 func gotHit():
-	Health-=1
+	Health-=33
 	healthbar.text=str(Health)
-
+	if(Health<=0):
+		die()
+func die():
+	queue_free()
 
 
 

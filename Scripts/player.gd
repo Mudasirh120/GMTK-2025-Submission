@@ -30,6 +30,7 @@ func _physics_process(delta: float) -> void:
 	soun.scale=base
 	soun.disabled=true
 	att.disabled=true
+		
 	if !isSurrendered:
 		if Input.is_action_pressed("Attack") and attcool==false:
 			attcool=true
