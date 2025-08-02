@@ -1,4 +1,4 @@
-[gd_scene load_steps=22 format=3 uid="uid://cx6kyjdn2yhux"]
+[gd_scene load_steps=21 format=3 uid="uid://cx6kyjdn2yhux"]
 
 [ext_resource type="Texture2D" uid="uid://dya7n5tt4vshy" path="res://Assets/Princess_Room/Floor.png" id="1_xoyoh"]
 [ext_resource type="Texture2D" uid="uid://b2viijydbmjcy" path="res://Assets/Princess_Room/BackWall.png" id="2_f4pg2"]
@@ -8,7 +8,6 @@
 [ext_resource type="Texture2D" uid="uid://ouqlwlxtwy3c" path="res://Assets/Princess_Room/Window.png" id="6_2hkqn"]
 [ext_resource type="Texture2D" uid="uid://3vyxli3bt5wm" path="res://Assets/Princess_Room/Sofa_set.png" id="7_34erp"]
 [ext_resource type="Texture2D" uid="uid://cbfvf0akwwhgd" path="res://Assets/Princess_Room/TableChair.png" id="8_k2bse"]
-[ext_resource type="Texture2D" uid="uid://dlpul4dnk0477" path="res://Assets/Princess_Room/office_desk.png" id="9_c7pbv"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_77l7m"]
 texture = ExtResource("1_xoyoh")
@@ -720,25 +719,25 @@ shape = SubResource("WorldBoundaryShape2D_fxl23")
 
 [node name="Bed" type="StaticBody2D" parent="."]
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Bed"]
-position = Vector2(45.375, -279)
-shape = SubResource("RectangleShape2D_xg5g8")
-
 [node name="Sprite2D" type="Sprite2D" parent="Bed"]
 position = Vector2(47, -273)
 scale = Vector2(0.305369, 0.305369)
 texture = ExtResource("3_62b6n")
 
-[node name="Almira" type="StaticBody2D" parent="."]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Bed"]
+position = Vector2(45.375, -279)
+shape = SubResource("RectangleShape2D_xg5g8")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Almira"]
-position = Vector2(-276.5, -313)
-shape = SubResource("RectangleShape2D_p7b0h")
+[node name="Almira" type="StaticBody2D" parent="."]
 
 [node name="Sprite2D" type="Sprite2D" parent="Almira"]
 position = Vector2(-277, -307)
 scale = Vector2(0.643519, 0.643518)
 texture = ExtResource("4_rs4xw")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Almira"]
+position = Vector2(-276.5, -313)
+shape = SubResource("RectangleShape2D_p7b0h")
 
 [node name="Window" type="StaticBody2D" parent="."]
 
@@ -777,12 +776,3 @@ shape = SubResource("RectangleShape2D_g50tq")
 position = Vector2(194, -195)
 scale = Vector2(0.536111, 0.536111)
 texture = ExtResource("8_k2bse")
-
-[node name="StaticBody2D" type="StaticBody2D" parent="."]
-
-[node name="Sprite2D" type="Sprite2D" parent="StaticBody2D"]
-position = Vector2(-207, -133)
-scale = Vector2(0.328704, 0.328704)
-texture = ExtResource("9_c7pbv")
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
