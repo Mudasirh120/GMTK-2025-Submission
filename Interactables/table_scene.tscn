@@ -1,0 +1,27 @@
+[gd_scene load_steps=4 format=3 uid="uid://bruiqe47258fs"]
+
+[ext_resource type="Texture2D" uid="uid://dulj1u1jji7kx" path="res://Assets/Table.png" id="1_fbfb3"]
+[ext_resource type="Script" uid="uid://bs5m3h2y04wiv" path="res://Interactables/table_scene.gd" id="1_vl855"]
+[ext_resource type="Texture2D" uid="uid://cck1n4j8msmcf" path="res://icon.svg" id="2_vl855"]
+
+[node name="TableScene" type="CharacterBody2D"]
+position = Vector2(1, 0)
+script = ExtResource("1_vl855")
+metadata/_edit_horizontal_guides_ = [177.0]
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_fbfb3")
+
+[node name="icon" type="Sprite2D" parent="Sprite2D"]
+position = Vector2(-122, -94)
+scale = Vector2(0.367188, 0.367188)
+texture = ExtResource("2_vl855")
+
+[node name="Button" type="Button" parent="Sprite2D"]
+offset_left = 146.0
+offset_top = -193.0
+offset_right = 184.0
+offset_bottom = -156.0
+text = "X"
+
+[connection signal="pressed" from="Sprite2D/Button" to="." method="_on_button_pressed"]
