@@ -14,6 +14,7 @@ radius = 93.2309
 radius = 475.857
 
 [node name="Player" type="CharacterBody2D" groups=["Player"]]
+z_index = 1
 script = ExtResource("1_cvnsp")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]

@@ -34,7 +34,7 @@ func _physics_process(delta: float) -> void:
 	soun.disabled=true
 	att.disabled=true
 	if !isSurrendered:
-		if Input.is_action_pressed("MOUSE_BUTTON_LEFT") and attcool==false and hasCrossbow:
+		if Input.is_action_pressed("Attack") and attcool==false and hasCrossbow:
 			attackdir()
 			attcool=true
 			attackcooldown.start()
@@ -87,7 +87,11 @@ func dodgeDash():
 		soun.disabled=false
 		soun.scale*=3
 func attackdir():
-	
+	var ThrowableArrow = load("res://Throwables/arrow.tscn") # Or load("res://MyScene.tscn")
+	var Arrow = ThrowableArrow.instantiate()
+	add_child(Arrow)
+	Arrow.z_index=-1
+	Arrow.targetlocation=get_global_mouse_position()- global_position
 func _on_attcooldown_timeout() -> void:
 	attcool=false
 

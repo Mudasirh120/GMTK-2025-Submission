@@ -1,14 +1,30 @@
-[gd_scene load_steps=2 format=3 uid="uid://ct423fba3jut1"]
+[gd_scene load_steps=5 format=3 uid="uid://ct423fba3jut1"]
 
+[ext_resource type="Script" uid="uid://ctvnh2lbfrlo4" path="res://Throwables/arrow.gd" id="1_0m5rs"]
 [ext_resource type="Texture2D" uid="uid://fnw3btluqusy" path="res://Assets/Arrow.png" id="1_1qfjt"]
 
+[sub_resource type="CircleShape2D" id="CircleShape2D_eq5nv"]
+radius = 57.9741
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_42tmv"]
+radius = 8.24621
+
 [node name="Arrow" type="CharacterBody2D"]
+script = ExtResource("1_0m5rs")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(57.35, -0.660278)
+rotation = 1.5708
+scale = Vector2(0.499024, 0.580039)
 texture = ExtResource("1_1qfjt")
 
 [node name="Area2D" type="Area2D" parent="."]
+position = Vector2(0, 3)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(130, -1)
+shape = SubResource("CircleShape2D_eq5nv")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(130, 2)
+shape = SubResource("CircleShape2D_42tmv")
