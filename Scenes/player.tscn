@@ -19,19 +19,19 @@ radius = 475.857
 z_index = 1
 script = ExtResource("1_cvnsp")
 
-[node name="Sprite2D" type="Sprite2D" parent="."]
+[node name="Sprite2D" type="Sprite2D" parent="." groups=["Player"]]
 position = Vector2(-2, -1)
 texture = ExtResource("1_v0iea")
 metadata/_edit_lock_ = true
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." groups=["Player"]]
 position = Vector2(-1, 0)
 shape = SubResource("CircleShape2D_cvnsp")
 
 [node name="Hitbox" type="Area2D" parent="."]
 visible = false
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Hitbox"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Hitbox" groups=["Player"]]
 shape = SubResource("CircleShape2D_6t5aa")
 
 [node name="Attack" type="Area2D" parent="."]
@@ -79,9 +79,9 @@ wait_time = 0.25
 position = Vector2(-1, 0)
 script = ExtResource("3_6t5aa")
 
-[node name="crossbow" type="Sprite2D" parent="."]
-position = Vector2(20, 52)
-scale = Vector2(29.75, 33.75)
+[node name="crossbow" type="Sprite2D" parent="." groups=["Player"]]
+position = Vector2(-0.937501, -1.9375)
+scale = Vector2(-0.124999, 1.87499)
 texture = SubResource("PlaceholderTexture2D_6t5aa")
 
 [connection signal="area_entered" from="Attack" to="." method="_on_attack_area_entered"]
