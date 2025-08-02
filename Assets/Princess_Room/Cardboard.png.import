@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://du3mmiv467mtw"
-path="res://.godot/imported/Untitled.png-2c5fbe2c7dbaa68830f5ec02876797d0.ctex"
+uid="uid://b3bxpgjv4k4bb"
+path="res://.godot/imported/Cardboard.png-9879fd404a6f83c57af5fc8640099d9e.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/Princess_Room/Floor/Untitled.png"
-dest_files=["res://.godot/imported/Untitled.png-2c5fbe2c7dbaa68830f5ec02876797d0.ctex"]
+source_file="res://Assets/Princess_Room/Cardboard.png"
+dest_files=["res://.godot/imported/Cardboard.png-9879fd404a6f83c57af5fc8640099d9e.ctex"]
 
 [params]
 
