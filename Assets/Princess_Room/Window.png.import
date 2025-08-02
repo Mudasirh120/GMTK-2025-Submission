@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bay4bf8s4vfnh"
-path="res://.godot/imported/Untitled.png-918065a8f954140000fb906d1c4ec60c.ctex"
+uid="uid://ouqlwlxtwy3c"
+path="res://.godot/imported/Window.png-cd767b82550a2bf1707f87337ea84a9d.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/Princess_Room/Front_Wall/Untitled.png"
-dest_files=["res://.godot/imported/Untitled.png-918065a8f954140000fb906d1c4ec60c.ctex"]
+source_file="res://Assets/Princess_Room/Window.png"
+dest_files=["res://.godot/imported/Window.png-cd767b82550a2bf1707f87337ea84a9d.ctex"]
 
 [params]
 
