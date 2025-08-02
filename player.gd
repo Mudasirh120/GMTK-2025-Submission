@@ -19,6 +19,9 @@ var Stamina :float= 1.0
 var totalCommulativeSpeed=1
 var dodgeDashAvailable:bool
 var isSurrendered:bool=false
+var hasCrossbow:bool=true
+var isSeen=false
+var CanInteract:bool
 func _ready() -> void:
 	isRunning=false
 	dodgeDashAvailable= true
@@ -31,17 +34,16 @@ func _physics_process(delta: float) -> void:
 	soun.disabled=true
 	att.disabled=true
 	if !isSurrendered:
-		if Input.is_action_pressed("Attack") and attcool==false:
+		if Input.is_action_pressed("MOUSE_BUTTON_LEFT") and attcool==false and hasCrossbow:
+			attackdir()
 			attcool=true
 			attackcooldown.start()
 			soun.disabled=false
 			att.disabled=false
 			soun.scale*=3
-			
 		direction = Input.get_vector("move_left",'move_right','move_forward',"move_backward")
 		if direction:
 			soun.disabled=false
-		attackdir()
 		if Input.is_action_pressed("run"):
 			if direction != Vector2():
 				if direction:
@@ -85,43 +87,10 @@ func dodgeDash():
 		soun.disabled=false
 		soun.scale*=3
 func attackdir():
-	if direction.y>0:
-		att.rotation=deg_to_rad(90)
-	elif direction.y<0:
-		att.rotation=deg_to_rad(-90)
-	elif direction.x<0:
-		att.rotation=deg_to_rad(180)
-	elif direction.x>0:
-		att.rotation=deg_to_rad(0)
-func _on_attack_area_entered(area: Area2D) -> void:
-	if area == EnemyHitArea:
-		Enemy.gotHit()
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-var isSeen=false
-
-
+	
 func _on_attcooldown_timeout() -> void:
 	attcool=false
 
-var CanInteract:bool
+func _on_attack_area_entered(area: Area2D) -> void:
+	if area == EnemyHitArea:
+		Enemy.gotHit()

@@ -7,7 +7,7 @@ func _on_area_2d_body_entered(body: Node2D):
 		enabled=false
 		enem.lastSeenPos=global_position
 		enem.soun.disabled
-		enem.ExplicitPosition=global_position
+		enem.ExplicitPosition=global_position-enem.global_position
 		enem.explicitPositions.push_back(global_position)
 	if body.is_in_group("enemy"):
 		enabled=true

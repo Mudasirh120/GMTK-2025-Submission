@@ -21,6 +21,10 @@ position = Vector2(216, 329)
 scale = Vector2(0.501078, 0.501078)
 motion_mode = 1
 
+[node name="Camera2D" type="Camera2D" parent="Main/Player"]
+position = Vector2(-15.9656, 37.9182)
+scale = Vector2(1.9957, 1.9957)
+
 [node name="Enemy" parent="Main" instance=ExtResource("2_bo1nx")]
 position = Vector2(760, 482)
 scale = Vector2(0.63654, 0.63654)
