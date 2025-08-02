@@ -88,7 +88,7 @@ func dodgeDash():
 		soun.disabled=false
 		soun.scale*=3
 func attackdir():
-	var ThrowableArrow = load("res://Throwables/arrow.tscn") # Or load("res://MyScene.tscn")
+	var ThrowableArrow = load("res://Throwables/arrow.tscn") 
 	var Arrow = ThrowableArrow.instantiate()
 	get_tree().get_root().add_child(Arrow)
 	Arrow.global_position=global_position
