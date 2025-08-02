@@ -6,6 +6,7 @@ extends CharacterBody2D
 @onready var sontim: Timer=$SoundDetect/sontim
 @onready var healthbar:Label=$Health
 @onready var Player:CharacterBody2D= get_parent().get_node("Player")
+var rot :int
 const SPEED:int=100
 var Health:int= 100
 var heard:bool=false
@@ -18,10 +19,13 @@ var tims:bool=false
 var dist
 var explicitPositions:Array
 var ExplicitPosition:Vector2
+var startpos:Vector2
 func _ready() -> void:
-	Ray.enabled=true
+	startpos=global_position
+
 func _on_visual_detect_body_entered(body: Node2D) -> void:
 	if body.is_in_group("Player"):
+		Ray.enabled=true
 		stillcansee=true
 		isFollowing=true
 		body.isSeen = true
@@ -87,6 +91,16 @@ func GoToLastSeen():
 func lookArround():
 	print("Kahan dekhna")
 	VisDetect.rotation += deg_to_rad(45) * get_process_delta_time()
+	
+	rot=rot+rotation_degrees-(rotation_degrees-1)
+	print(rot)
+	if rot==360:
+		Agent.target_position=startpos
+		rot=0
+		Ray.enabled=false
+		direction = (Agent.get_next_path_position() - global_position).normalized()
+		velocity = direction * SPEED
+		move_and_slide()
 func _on_sontim_timeout() -> void:
 	tims=false
 	global_rotation_degrees=0

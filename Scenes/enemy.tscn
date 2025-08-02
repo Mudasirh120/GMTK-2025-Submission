@@ -37,13 +37,11 @@ shape = SubResource("CircleShape2D_afpow")
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="VisualDetect"]
 position = Vector2(-15, 1)
 polygon = PackedVector2Array(15, -17, 53, -63, 465, -205, 472, 184, 57, 61, 15, 14)
-disabled = true
 
 [node name="SoundDetect" type="Area2D" parent="."]
 
 [node name="sound" type="CollisionShape2D" parent="SoundDetect"]
 shape = SubResource("CircleShape2D_287tu")
-disabled = true
 
 [node name="sontim" type="Timer" parent="SoundDetect"]
 wait_time = 0.25
