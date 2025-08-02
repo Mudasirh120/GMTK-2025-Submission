@@ -1,0 +1,19 @@
+[gd_scene load_steps=4 format=3 uid="uid://ca2mp8vmf2ypo"]
+
+[ext_resource type="Texture2D" uid="uid://bb8jd3r1jujwt" path="res://Assets/Corridor/floor.png" id="1_ll1bl"]
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_kbe2v"]
+texture = ExtResource("1_ll1bl")
+120:37/0 = 0
+
+[sub_resource type="TileSet" id="TileSet_arsda"]
+sources/0 = SubResource("TileSetAtlasSource_kbe2v")
+
+[node name="level_2" type="Node2D"]
+
+[node name="Floor" type="TileMap" parent="."]
+tile_set = SubResource("TileSet_arsda")
+format = 2
+
+[node name="Wall" type="TileMap" parent="."]
+format = 2
