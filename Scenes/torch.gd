@@ -5,8 +5,8 @@ func _physics_process(delta: float):
 	if !enabled:
 		enem.lastSeenPos=global_position
 		enem.soun.disabled
+		enem.ExplicitPosition=global_position
 func _on_area_2d_body_entered(body: Node2D):
-	print("Koi aya")
 	if body.is_in_group("Player"):
 		print("Player aya")
 		enabled=false
