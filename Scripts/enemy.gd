@@ -16,6 +16,7 @@ var direction:Vector2
 var lastheard:Vector2
 var tims:bool=false
 var dist
+var explicitPositions:Array
 var ExplicitPosition:Vector2
 func _ready() -> void:
 	Ray.enabled=true
@@ -24,17 +25,20 @@ func _on_visual_detect_body_entered(body: Node2D) -> void:
 		stillcansee=true
 		isFollowing=true
 		body.isSeen = true
+func sortPositions():
+	explicitPositions.sort_custom(func(a,b): return a[1]< b[1] )
 func _physics_process(delta: float):
-	Ray.global_rotation_degrees=0
-	if ExplicitPosition:
-		Agent.target_position=ExplicitPosition
+	if explicitPositions!=[]:
+		sortPositions()
+		print(explicitPositions)
+		Agent.target_position=explicitPositions[0]
 		if not Agent.is_navigation_finished():
 			direction = (Agent.get_next_path_position() - global_position).normalized()
 			velocity = direction * SPEED
 			move_and_slide()	
 		else:
-			ExplicitPosition=Vector2()
-			velocity = Vector2.ZERO
+			explicitPositions.pop_front()
+	Ray.global_rotation_degrees=0
 	if tims==true:
 		soun.disabled=true
 	if heard:
@@ -85,6 +89,7 @@ func lookArround():
 	VisDetect.rotation += deg_to_rad(45) * get_process_delta_time()
 func _on_sontim_timeout() -> void:
 	tims=false
+	global_rotation_degrees=0
 	soun.disabled=false
 
 

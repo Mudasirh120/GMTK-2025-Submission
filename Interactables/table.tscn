@@ -12,11 +12,6 @@ radius = 75.2861
 [node name="Table" type="CharacterBody2D"]
 script = ExtResource("1_v5i0k")
 
-[node name="Sprite2d" type="Sprite2D" parent="."]
-position = Vector2(0, 1)
-scale = Vector2(0.298, 0.324903)
-texture = ExtResource("2_kl0hw")
-
 [node name="Area2D" type="Area2D" parent="."]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
@@ -30,6 +25,13 @@ offset_left = -44.0
 offset_top = -10.0
 offset_right = 47.0
 offset_bottom = 13.0
+
+[node name="Sprite2d" type="Sprite2D" parent="."]
+position = Vector2(0, 1)
+scale = Vector2(0.298, 0.324903)
+texture = ExtResource("2_kl0hw")
+
+[node name="SubViewport" type="SubViewport" parent="."]
 
 [connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
 [connection signal="body_exited" from="Area2D" to="." method="_on_area_2d_body_exited"]

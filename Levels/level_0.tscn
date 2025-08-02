@@ -57,9 +57,9 @@ position = Vector2(67, 7)
 scale = Vector2(0.0694906, 0.0694906)
 
 [node name="Camera2D" type="Camera2D" parent="Player"]
-position = Vector2(-978.549, -100.733)
+position = Vector2(-43.1713, 0)
 scale = Vector2(14.3904, 14.3904)
-zoom = Vector2(6, 6)
+zoom = Vector2(4, 4)
 
 [node name="Torch" parent="." groups=["istorch"] instance=ExtResource("2_u2002")]
 position = Vector2(-171, -109)
