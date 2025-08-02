@@ -34,7 +34,6 @@ func sortPositions():
 func _physics_process(delta: float):
 	if explicitPositions!=[]:
 		sortPositions()
-		print(explicitPositions)
 		Agent.target_position=explicitPositions[0]
 		if not Agent.is_navigation_finished():
 			direction = (Agent.get_next_path_position() - global_position).normalized()
@@ -66,7 +65,6 @@ func _physics_process(delta: float):
 			velocity = Vector2.ZERO
 			lookArround()
 	move_and_slide()
-
 func _on_sound_detect_area_entered(area: Area2D):
 	if !stillcansee:
 		if area.is_in_group("splayer"):
@@ -89,11 +87,6 @@ func FollowPlayer():
 func GoToLastSeen():
 	Agent.target_position = lastSeenPos
 func lookArround():
-	print("Kahan dekhna")
-	VisDetect.rotation += deg_to_rad(45) * get_process_delta_time()
-	
-	rot=rot+rotation_degrees-(rotation_degrees-1)
-	print(rot)
 	if rot==360:
 		Agent.target_position=startpos
 		rot=0
@@ -101,6 +94,11 @@ func lookArround():
 		direction = (Agent.get_next_path_position() - global_position).normalized()
 		velocity = direction * SPEED
 		move_and_slide()
+	else:
+		VisDetect.rotation += deg_to_rad(45) * get_process_delta_time()
+		rot=rot+rotation_degrees-(rotation_degrees-1)
+		print(rot)
+	
 func _on_sontim_timeout() -> void:
 	tims=false
 	global_rotation_degrees=0

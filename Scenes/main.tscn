@@ -1,9 +1,10 @@
-[gd_scene load_steps=6 format=3 uid="uid://bkoptsr418n5"]
+[gd_scene load_steps=7 format=3 uid="uid://bkoptsr418n5"]
 
 [ext_resource type="PackedScene" uid="uid://gshrul3qv510" path="res://Scenes/player.tscn" id="1_jjgbg"]
 [ext_resource type="PackedScene" uid="uid://cdn5oj11h0t81" path="res://Scenes/enemy.tscn" id="2_bo1nx"]
 [ext_resource type="PackedScene" uid="uid://cese0ase0h2vr" path="res://Scenes/next_level.tscn" id="3_8gbba"]
 [ext_resource type="PackedScene" uid="uid://bwq24iesva6g5" path="res://Interactables/table.tscn" id="4_jjvhh"]
+[ext_resource type="PackedScene" uid="uid://dn25lfx1doc52" path="res://Objects/arrow_firer.tscn" id="5_kry3j"]
 
 [sub_resource type="NavigationPolygon" id="NavigationPolygon_8gbba"]
 vertices = PackedVector2Array(-320.063, -445.977, 2238.64, 153.961, 1224.08, 165.859, 517.844, 434.594, 307.438, 1225.73, 245.133, 472.609, 266.703, 177.109, 493.711, 174.438)
@@ -40,3 +41,6 @@ carve_navigation_mesh = true
 
 [node name="Table" parent="." instance=ExtResource("4_jjvhh")]
 position = Vector2(719, 229)
+
+[node name="ArrowFirer" parent="." instance=ExtResource("5_kry3j")]
+position = Vector2(380, 542)

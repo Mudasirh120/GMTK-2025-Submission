@@ -7,19 +7,15 @@ var checkforCollision=false
 @onready var decomp:Timer=$Timer
 @onready var sprite:Sprite2D=$Sprite2D
 var dir:Vector2
-func assigndir():
-	dir=targetlocation.normalized()
-func ready():
-	
-	call_deferred(assigndir())
+
 func _physics_process(delta: float) -> void:
 	dir=targetlocation.normalized()
 	if global_position == targetlocation:
 		print('Pohanch gya')
 	if !isCollided:
 		velocity=SPEED*dir
-	else:
-		velocity=Vector2()
+	#else:
+		#velocity=Vector2()
 	move_and_slide()
 func _on_hit_body_entered(body: Node2D) -> void:
 	
