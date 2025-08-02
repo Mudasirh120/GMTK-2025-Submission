@@ -44,3 +44,4 @@ position = Vector2(719, 229)
 
 [node name="ArrowFirer" parent="." instance=ExtResource("5_kry3j")]
 position = Vector2(380, 542)
+rotation = -1.5708
