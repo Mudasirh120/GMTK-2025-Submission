@@ -89,7 +89,8 @@ func dodgeDash():
 func attackdir():
 	var ThrowableArrow = load("res://Throwables/arrow.tscn") # Or load("res://MyScene.tscn")
 	var Arrow = ThrowableArrow.instantiate()
-	add_child(Arrow)
+	get_tree().get_root().add_child(Arrow)
+	Arrow.global_position=global_position
 	Arrow.z_index=-1
 	Arrow.targetlocation=get_global_mouse_position()- global_position
 func _on_attcooldown_timeout() -> void:
