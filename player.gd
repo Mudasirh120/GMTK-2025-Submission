@@ -9,6 +9,7 @@ extends CharacterBody2D
 @onready var att:CollisionPolygon2D=$Attack/attackbox
 @onready var soun:CollisionShape2D=$Sound/CollisionShape2D
 @onready var attackcooldown:Timer=$attcooldown
+@onready var cross:Sprite2D=$crossbow
 var attcool:bool=false
 var base:Vector2
 var direction 
@@ -91,8 +92,9 @@ func attackdir():
 	var Arrow = ThrowableArrow.instantiate()
 	get_tree().get_root().add_child(Arrow)
 	Arrow.global_position=global_position
-	Arrow.z_index=-1
 	Arrow.targetlocation=get_global_mouse_position()- global_position
+	cross.look_at(get_global_mouse_position())
+	Arrow.rotation=cross.rotation
 func _on_attcooldown_timeout() -> void:
 	attcool=false
 

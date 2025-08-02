@@ -4,8 +4,9 @@ var targetlocation:Vector2
 const SPEED =1
 var isCollided:bool=false
 var checkforCollision=false
-func _ready() -> void:
-		look_at(get_global_mouse_position())
+@onready var sprite:Sprite2D=$Sprite2D
+func _ready() :
+	pass
 func _physics_process(delta: float) -> void:
 	if global_position == targetlocation:
 		print('Pohanch gya')
