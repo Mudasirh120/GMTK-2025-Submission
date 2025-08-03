@@ -4,8 +4,8 @@ extends CharacterBody2D
 @onready var HealthText:Label = $Health
 @onready var TotalSpeed:Label = $TotalSpeed
 @onready var AttackArea:Area2D=$Attack
-@onready var EnemyHitArea:Area2D= get_parent().get_node("Enemy").get_node("HitBox")
 @onready var Enemy:CharacterBody2D= get_parent().get_node("Enemy")
+@onready var EnemyHitArea #elect enemy Hitbox
 @onready var att:CollisionPolygon2D=$Attack/attackbox
 @onready var soun:CollisionShape2D=$Sound/CollisionShape2D
 @onready var attackcooldown:Timer=$attcooldown
@@ -21,7 +21,7 @@ var Stamina :float= 1.0
 var totalCommulativeSpeed=1
 var dodgeDashAvailable:bool
 var isSurrendered:bool=false
-var hasCrossbow:bool=true
+var hasCrossbow:bool=false
 var isSeen=false
 var CanInteract:bool
 func _ready() -> void:

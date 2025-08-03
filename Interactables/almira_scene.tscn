@@ -1,0 +1,8 @@
+[gd_scene load_steps=2 format=3 uid="uid://d20nkuvxox5kt"]
+
+[ext_resource type="Texture2D" uid="uid://b3e5ytobjw7tw" path="res://Assets/OpenCupboard2.png" id="2_k41mx"]
+
+[node name="Almira_Scene" type="StaticBody2D"]
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("2_k41mx")

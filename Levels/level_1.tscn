@@ -1,15 +1,18 @@
-[gd_scene load_steps=40 format=3 uid="uid://cx6kyjdn2yhux"]
+[gd_scene load_steps=44 format=3 uid="uid://cx6kyjdn2yhux"]
 
+[ext_resource type="Script" uid="uid://b6yu2a21wpgns" path="res://Levels/level_1.gd" id="1_62b6n"]
 [ext_resource type="Texture2D" uid="uid://dya7n5tt4vshy" path="res://Assets/Princess_Room/Floor.png" id="1_xoyoh"]
 [ext_resource type="Texture2D" uid="uid://b2viijydbmjcy" path="res://Assets/Princess_Room/BackWall.png" id="2_f4pg2"]
 [ext_resource type="Texture2D" uid="uid://wq56drugmo1e" path="res://Assets/Princess_Room/bed.png" id="3_62b6n"]
 [ext_resource type="Texture2D" uid="uid://bdveg3q6ymmi8" path="res://Assets/Princess_Room/Cabinet.png" id="4_rs4xw"]
+[ext_resource type="PackedScene" uid="uid://cowlbnxxe5mqu" path="res://ViewPorts/sub_viewport_container2.tscn" id="5_2hkqn"]
 [ext_resource type="Texture2D" uid="uid://gals06ej3plc" path="res://Assets/Princess_Room/bg.png" id="5_lk57d"]
-[ext_resource type="Texture2D" uid="uid://ouqlwlxtwy3c" path="res://Assets/Princess_Room/Window.png" id="6_2hkqn"]
+[ext_resource type="Texture2D" uid="uid://ouqlwlxtwy3c" path="res://Assets/Window.png" id="6_2hkqn"]
 [ext_resource type="Texture2D" uid="uid://3vyxli3bt5wm" path="res://Assets/Princess_Room/Sofa_set.png" id="7_34erp"]
 [ext_resource type="Texture2D" uid="uid://cbfvf0akwwhgd" path="res://Assets/Princess_Room/TableChair.png" id="8_k2bse"]
 [ext_resource type="Texture2D" uid="uid://dlpul4dnk0477" path="res://Assets/Princess_Room/office_desk.png" id="9_c7pbv"]
 [ext_resource type="PackedScene" uid="uid://dhkj77kvhfj7" path="res://Scenes/torch.tscn" id="10_f4pg2"]
+[ext_resource type="PackedScene" uid="uid://gshrul3qv510" path="res://Scenes/player.tscn" id="12_rs4xw"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_77l7m"]
 texture = ExtResource("1_xoyoh")
@@ -1190,9 +1193,6 @@ distance = 337.0
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_xg5g8"]
 size = Vector2(87.25, 109)
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_p7b0h"]
-size = Vector2(107, 100)
-
 [sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_hsj5a"]
 cull_mode = 1
 polygon = PackedVector2Array(232, -339, 232, -338, 232, -306, 235, -306, 235, -306, 235, -329, 235, -339)
@@ -1231,7 +1231,15 @@ closed = false
 cull_mode = 1
 polygon = PackedVector2Array(-28, 29.25, -15, 29.25, -12, 31.25, -14, 47.25, -14, 55.25, -10, 55.25, -9, 46.25, 3, 46.25, 5, 56.25, 9, 56.25, 4, 32, 9, 30.25, 10, 29.25, 21, 28.25, 28, 40.25, 37, 40.25, 17, 10.25, 26, 9.25, 30, 7.25, 31, -7.75, 36, -7.75, 31, -14.75, 30, -46.75, 22, -50.75, -30, -50.75, -38, -47.75, -38, -15.75, -43, -10.75, -44, -8.75, -38, -6.75, -38, 7.25, -34, 8.25, -33, 23.25, -44, 40.25, -36, 41.25)
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_p7b0h"]
+size = Vector2(107, 100)
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_rs4xw"]
+radius = 58.0
+height = 138.0
+
 [node name="Level_1" type="Node2D"]
+script = ExtResource("1_62b6n")
 
 [node name="TileMap" type="TileMap" parent="."]
 tile_set = SubResource("TileSet_1rr3k")
@@ -1269,17 +1277,6 @@ texture = ExtResource("3_62b6n")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Bed"]
 position = Vector2(45.375, -279)
 shape = SubResource("RectangleShape2D_xg5g8")
-
-[node name="Almira" type="StaticBody2D" parent="."]
-
-[node name="Sprite2D" type="Sprite2D" parent="Almira"]
-position = Vector2(-277, -307)
-scale = Vector2(0.643519, 0.643518)
-texture = ExtResource("4_rs4xw")
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Almira"]
-position = Vector2(-276.5, -313)
-shape = SubResource("RectangleShape2D_p7b0h")
 
 [node name="Window" type="StaticBody2D" parent="."]
 
@@ -1349,14 +1346,14 @@ occluder = SubResource("OccluderPolygon2D_xg5g8")
 position = Vector2(245, -185.25)
 occluder = SubResource("OccluderPolygon2D_p7b0h")
 
-[node name="StaticBody2D" type="StaticBody2D" parent="."]
+[node name="Study" type="StaticBody2D" parent="."]
 
-[node name="Sprite2D" type="Sprite2D" parent="StaticBody2D"]
+[node name="Sprite2D" type="Sprite2D" parent="Study"]
 position = Vector2(-207, -133)
 scale = Vector2(0.328704, 0.328704)
 texture = ExtResource("9_c7pbv")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Study"]
 
 [node name="DirectionalLight2D" type="DirectionalLight2D" parent="."]
 light_mask = 2
@@ -1367,10 +1364,56 @@ color = Color(0.987798, 0.886959, 0.631356, 1)
 energy = 2.8
 
 [node name="Torch" parent="." instance=ExtResource("10_f4pg2")]
+visible = false
 position = Vector2(225, -389)
 scale = Vector2(13.1198, 17.3567)
+script = null
 
 [node name="LightOccluder2D" type="LightOccluder2D" parent="."]
+visible = false
 position = Vector2(247, -185)
 occluder = SubResource("OccluderPolygon2D_p7b0h")
 sdf_collision = false
+
+[node name="Player" parent="." instance=ExtResource("12_rs4xw")]
+position = Vector2(-124, -105)
+scale = Vector2(0.294257, 0.294257)
+
+[node name="Almira" type="StaticBody2D" parent="."]
+
+[node name="SubViewportContainer" parent="Almira" instance=ExtResource("5_2hkqn")]
+visible = false
+offset_left = -259.0
+offset_top = -267.0
+offset_right = 342.0
+offset_bottom = 323.0
+
+[node name="Sprite2D" type="Sprite2D" parent="Almira"]
+position = Vector2(-277, -307)
+scale = Vector2(0.643519, 0.643518)
+texture = ExtResource("4_rs4xw")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Almira"]
+position = Vector2(-276.5, -313)
+shape = SubResource("RectangleShape2D_p7b0h")
+
+[node name="AlmiraDetect" type="Area2D" parent="Almira"]
+position = Vector2(0, 1)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Almira/AlmiraDetect"]
+position = Vector2(-277, -289)
+shape = SubResource("CapsuleShape2D_rs4xw")
+
+[node name="Label" type="Label" parent="Almira"]
+offset_left = -327.0
+offset_top = -312.0
+offset_right = -197.0
+offset_bottom = -263.0
+text = "
+"
+
+[node name="Camera2D" type="Camera2D" parent="."]
+
+[connection signal="body_entered" from="Almira/AlmiraDetect" to="." method="_on_almira_detect_body_entered"]
+[connection signal="body_exited" from="Almira/AlmiraDetect" to="." method="_on_almira_detect_body_exited"]
+[connection signal="input_event" from="Almira/AlmiraDetect" to="." method="_on_almira_detect_input_event"]
