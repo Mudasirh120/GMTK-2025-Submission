@@ -1,0 +1,118 @@
+[gd_scene load_steps=9 format=3 uid="uid://coxp1cm6fo5m0"]
+
+[ext_resource type="Script" uid="uid://b1jd7ae3rns1t" path="res://level_3.gd" id="1_16pka"]
+[ext_resource type="Texture2D" uid="uid://dnhchgu3vc52o" path="res://Assets/Armory/armory.png" id="2_j8bo8"]
+[ext_resource type="Texture2D" uid="uid://cplem2ehn8lch" path="res://Assets/Armory/table with crossbow.png" id="3_1jdk1"]
+[ext_resource type="Texture2D" uid="uid://2xwue82w3eag" path="res://Assets/Armory/Study Table .png" id="3_6p2dc"]
+[ext_resource type="PackedScene" uid="uid://gshrul3qv510" path="res://Scenes/player.tscn" id="4_j8bo8"]
+[ext_resource type="Texture2D" uid="uid://dedyfnvh0fw2d" path="res://Assets/Armory/all open_.png" id="6_6p2dc"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_6p2dc"]
+size = Vector2(333, 170)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_fmu3g"]
+size = Vector2(396, 278)
+
+[node name="Node2D" type="Node2D"]
+script = ExtResource("1_16pka")
+
+[node name="Armory" type="Sprite2D" parent="."]
+position = Vector2(402, 311)
+scale = Vector2(1, 1)
+texture = ExtResource("2_j8bo8")
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+position = Vector2(-480, 394)
+scale = Vector2(2.12, 2.12)
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="StaticBody2D"]
+position = Vector2(226.415, -185.849)
+scale = Vector2(0.471698, 0.471698)
+polygon = PackedVector2Array(-546, -80, -550, 257, -447, 259, -445, 343, -310, 339, -308, 259, -176, 259, -176, -72)
+
+[node name="Sprite2D" type="Sprite2D" parent="StaticBody2D"]
+position = Vector2(66.5094, -127.83)
+scale = Vector2(0.485709, 0.485709)
+texture = ExtResource("3_6p2dc")
+
+[node name="StaticBody2D4" type="StaticBody2D" parent="."]
+
+[node name="CollisionPolygon2D4" type="CollisionPolygon2D" parent="StaticBody2D4"]
+z_index = -1
+position = Vector2(922, -45)
+scale = Vector2(1, 1)
+polygon = PackedVector2Array(77, 279, 75, 386, 336, 374, 344, 466, 406, 458, 399, 320, 442, 314, 442, 242, 303, 240, 301, 300, 212, 295, 208, 271)
+
+[node name="Sprite2D" type="Sprite2D" parent="StaticBody2D4"]
+
+[node name="StaticBody2D2" type="StaticBody2D" parent="."]
+
+[node name="CollisionPolygon2D2" type="CollisionPolygon2D" parent="StaticBody2D2"]
+z_index = -1
+position = Vector2(824, -64)
+scale = Vector2(1, 1)
+polygon = PackedVector2Array(-548, 579, -544, 713, -316, 711, -312, 586)
+
+[node name="StaticBody2D3" type="StaticBody2D" parent="."]
+
+[node name="CollisionPolygon2D3" type="CollisionPolygon2D" parent="StaticBody2D3"]
+z_index = -1
+position = Vector2(922, -45)
+scale = Vector2(1, 1)
+polygon = PackedVector2Array(7, 723, 11, 869, 399, 865, 401, 634, 7, 641)
+
+[node name="TableWithCrossbow" type="Sprite2D" parent="."]
+position = Vector2(-192, 630)
+texture = ExtResource("3_1jdk1")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="TableWithCrossbow"]
+position = Vector2(-6.5, -21)
+shape = SubResource("RectangleShape2D_6p2dc")
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(-208, 595)
+shape = SubResource("RectangleShape2D_fmu3g")
+
+[node name="Player" parent="." instance=ExtResource("4_j8bo8")]
+position = Vector2(-480, 394)
+scale = Vector2(2.12, 2.12)
+
+[node name="Camera2D" type="Camera2D" parent="Player"]
+zoom = Vector2(1.25, 1.25)
+
+[node name="StaticBody2D6" type="StaticBody2D" parent="."]
+
+[node name="CollisionPolygon2D6" type="CollisionPolygon2D" parent="StaticBody2D6"]
+z_index = -1
+position = Vector2(824, -64)
+scale = Vector2(1, 1)
+polygon = PackedVector2Array(11, 29, 8, 273, 275, 275, 273, 0, 11, -6)
+
+[node name="StaticBody2D7" type="StaticBody2D" parent="."]
+
+[node name="CollisionPolygon2D7" type="CollisionPolygon2D" parent="StaticBody2D7"]
+z_index = -1
+position = Vector2(824, -64)
+scale = Vector2(1, 1)
+polygon = PackedVector2Array(-1384, -160, -1386, 239, 536, 236, 538, -166)
+
+[node name="StaticBody2D5" type="StaticBody2D" parent="."]
+
+[node name="CollisionPolygon2D5" type="CollisionPolygon2D" parent="StaticBody2D5"]
+z_index = -1
+position = Vector2(824, -64)
+scale = Vector2(1, 1)
+polygon = PackedVector2Array(-211, -96, -215, 282, -39, 290, -53, -117)
+
+[node name="StaticBody2D8" type="StaticBody2D" parent="."]
+
+[node name="Sprite2D" type="Sprite2D" parent="StaticBody2D8"]
+z_index = 2
+position = Vector2(402, 311)
+texture = ExtResource("6_6p2dc")
+
+[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
+[connection signal="body_exited" from="Area2D" to="." method="_on_area_2d_body_exited"]
+[connection signal="input_event" from="Area2D" to="." method="_on_area_2d_input_event"]
