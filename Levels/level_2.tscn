@@ -1,4 +1,4 @@
-[gd_scene load_steps=22 format=3 uid="uid://c64thox0u2yse"]
+[gd_scene load_steps=22 format=3 uid="uid://ca2mp8vmf2ypo"]
 
 [ext_resource type="Texture2D" uid="uid://b2viijydbmjcy" path="res://Assets/Princess_Room/BackWall.png" id="1_bcgyv"]
 [ext_resource type="Texture2D" uid="uid://bb8jd3r1jujwt" path="res://Assets/Corridor/floor.png" id="1_ll1bl"]

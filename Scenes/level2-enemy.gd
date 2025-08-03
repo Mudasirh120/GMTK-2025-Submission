@@ -27,7 +27,7 @@ func Patrol():
 			Agent.target_position=EndPoint
 			dir=!dir
 func follow():
-	Ray.target_position=(Player.global_position - global_position)
+	Ray.target_position=Player.global_position
 	Ray.force_raycast_update()
 	Agent.target_position=Ray.target_position
 	if Ray.is_colliding():
