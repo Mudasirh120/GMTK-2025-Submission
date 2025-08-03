@@ -354,7 +354,7 @@ script = null
 occluder = SubResource("OccluderPolygon2D_1soli")
 
 [node name="Player" parent="." instance=ExtResource("6_s275v")]
-position = Vector2(-776, -76)
+position = Vector2(-928, -124)
 scale = Vector2(0.44, 0.44)
 
 [node name="Camera2D" type="Camera2D" parent="Player"]
