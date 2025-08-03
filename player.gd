@@ -1,4 +1,5 @@
 extends CharacterBody2D
+@onready var key:Sprite2D=$key
 @onready var RunningTimer:Timer = $RunningTimer
 @onready var StaminaText:Label = $Stamina
 @onready var HealthText:Label = $Health
@@ -33,6 +34,7 @@ func _ready() -> void:
 	print(Enemy)
 	base=Vector2(1.0,1.0)
 func _physics_process(delta: float) -> void:
+	keyshow()
 	soun.scale=base
 	soun.disabled=true
 	att.disabled=true
@@ -71,7 +73,11 @@ func _physics_process(delta: float) -> void:
 		if(Health <50):
 			Surrender()
 		move_and_slide()
-
+func keyshow():
+	if hasKey:
+		key.visible=true
+	else:
+		key.visible=false
 func _on_running_timer_timeout() -> void:
 	if isRunning:
 		Stamina-=0.1
