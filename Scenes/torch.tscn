@@ -2,15 +2,15 @@
 
 [ext_resource type="Script" uid="uid://dgsbehrylcw0y" path="res://Scenes/torch.gd" id="1_wced7"]
 
-[sub_resource type="Gradient" id="Gradient_h1t0l"]
-offsets = PackedFloat32Array(0.0454545, 0.753247)
-colors = PackedColorArray(1, 1, 1, 1, 0.056338, 0.056338, 0.056338, 1)
+[sub_resource type="Gradient" id="Gradient_wced7"]
+offsets = PackedFloat32Array(0.188312, 0.779221, 1)
+colors = PackedColorArray(1, 1, 1, 1, 0.115108, 0.115108, 0.115108, 1, 0, 0, 0, 1)
 
-[sub_resource type="GradientTexture2D" id="GradientTexture2D_beu3c"]
-gradient = SubResource("Gradient_h1t0l")
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_h1t0l"]
+gradient = SubResource("Gradient_wced7")
 fill = 1
-fill_from = Vector2(0.490826, 0.495413)
-fill_to = Vector2(1, 1)
+fill_from = Vector2(0.458716, 0.541284)
+fill_to = Vector2(0.926606, 0.0688073)
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_h1t0l"]
 radius = 8.79344
@@ -20,7 +20,7 @@ position = Vector2(320, 194)
 scale = Vector2(2.75977, 2.00781)
 energy = 4.81
 shadow_enabled = true
-texture = SubResource("GradientTexture2D_beu3c")
+texture = SubResource("GradientTexture2D_h1t0l")
 script = ExtResource("1_wced7")
 
 [node name="Area2D" type="Area2D" parent="."]
