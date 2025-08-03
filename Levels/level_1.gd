@@ -3,6 +3,7 @@ extends Node2D
 @onready var viewtable:SubViewportContainer=$Almira/SubViewportContainer
 @onready var AlmiraText =$Almira/Label
 @onready var DoorText =$Door/Label
+@onready var DoorCollision = $Door/DoorStopper
 @onready var player
 @onready var camera:Camera2D=$Player/Camera2D
 @onready var meraCamera :Camera2D=get_node("Almira/SubViewportContainer/VCamera")
@@ -12,10 +13,8 @@ var clickable=false
 @onready var main
 @onready var doorOpen = load("res://Assets/RoomDoorOpen.png")
 var doorstate:bool=false
-@onready var gonext:CollisionShape2D=$gonext/CollisionShape2D
 @onready var door:Sprite2D = $Door/Sprite2D
-func _ready() -> void:
-	gonext.disabled=true
+@onready var nextLevelGoing = load("res://Scenes/next_level.tscn")
 func _on_almira_detect_body_entered(body: Node2D) -> void:
 	if body.is_in_group("Player"):
 		body.CanInteract=true
@@ -46,8 +45,6 @@ func disable():
 	area.disabled=false
 	sprite.visible=true
 	meraCamera.enabled=false
-	
-
 func _on_door_open_body_entered(body: Node2D) -> void:
 	if body.is_in_group("Player"):
 		player=body
@@ -61,10 +58,7 @@ func _on_door_open_input_event(viewport: Node, event: InputEvent, shape_idx: int
 	if event is InputEventMouseButton and event.pressed and event.button_index == MOUSE_BUTTON_LEFT and player.hasKey:
 		door.texture=doorOpen
 		doorstate=true
-		gonext.disabled=false
+		DoorCollision.disabled=true
+		var nextLevel = nextLevelGoing.instantiate()
+		door.add_child(nextLevel)
 		
-
-
-func _on_gonext_body_entered(body: Node2D) -> void:
-	print("next level")
-	pass # Replace with function body.
