@@ -2114,6 +2114,8 @@ position = Vector2(-136, -321)
 position = Vector2(24, 21.75)
 shape = SubResource("RectangleShape2D_as0xv")
 
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+
 [connection signal="body_entered" from="Almira/AlmiraDetect" to="." method="_on_almira_detect_body_entered"]
 [connection signal="body_exited" from="Almira/AlmiraDetect" to="." method="_on_almira_detect_body_exited"]
 [connection signal="input_event" from="Almira/AlmiraDetect" to="." method="_on_almira_detect_input_event"]
