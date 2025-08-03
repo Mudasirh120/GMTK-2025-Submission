@@ -22,6 +22,7 @@ var totalCommulativeSpeed=1
 var dodgeDashAvailable:bool
 var isSurrendered:bool=false
 var hasCrossbow:bool=false
+var hasKey:bool=false
 var isSeen=false
 var CanInteract:bool
 func _ready() -> void:
