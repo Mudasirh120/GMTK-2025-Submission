@@ -1,16 +1,15 @@
-[gd_scene load_steps=31 format=3 uid="uid://cx6kyjdn2yhux"]
+[gd_scene load_steps=30 format=3 uid="uid://cx6kyjdn2yhux"]
 
 [ext_resource type="Script" uid="uid://b6yu2a21wpgns" path="res://Levels/level_1.gd" id="1_62b6n"]
 [ext_resource type="Texture2D" uid="uid://ctlk3tdkura04" path="res://Assets/Princess room/floor.png" id="2_2hkqn"]
 [ext_resource type="Texture2D" uid="uid://b8jux6wyy3yvx" path="res://Assets/Princess room/BackWall.png" id="3_34erp"]
-[ext_resource type="Texture2D" path="res://Assets/Princess_Room/bed.png" id="3_62b6n"]
-[ext_resource type="Texture2D" path="res://Assets/Princess_Room/Cabinet.png" id="4_rs4xw"]
+[ext_resource type="Texture2D" uid="uid://d4nuji4q1xxbp" path="res://Assets/Princess room/bed.png" id="4_rs4xw"]
 [ext_resource type="PackedScene" uid="uid://cowlbnxxe5mqu" path="res://ViewPorts/sub_viewport_container2.tscn" id="5_2hkqn"]
-[ext_resource type="Texture2D" path="res://Assets/Princess_Room/bg.png" id="5_lk57d"]
 [ext_resource type="Texture2D" uid="uid://ouqlwlxtwy3c" path="res://Assets/Window.png" id="6_2hkqn"]
 [ext_resource type="Texture2D" uid="uid://bo3u70rvgtcwi" path="res://Assets/Princess room/Sofa_set.png" id="7_lk57d"]
 [ext_resource type="Texture2D" uid="uid://dfwdoi6fuqb8w" path="res://Assets/Princess room/TableChair.png" id="8_2hkqn"]
-[ext_resource type="Texture2D" path="res://Assets/Princess_Room/office_desk.png" id="9_c7pbv"]
+[ext_resource type="Texture2D" uid="uid://2xwue82w3eag" path="res://Assets/Armory/Study Table .png" id="8_lk57d"]
+[ext_resource type="Texture2D" uid="uid://ctmubgbqpyx6u" path="res://Assets/Princess room/Cabinet1.png" id="11_2hkqn"]
 [ext_resource type="PackedScene" uid="uid://gshrul3qv510" path="res://Scenes/player.tscn" id="12_rs4xw"]
 [ext_resource type="Texture2D" uid="uid://djdq3ypmgopxh" path="res://Assets/RoomDoorClosed.png" id="14_2hkqn"]
 
@@ -132,7 +131,7 @@ shape = SubResource("RectangleShape2D_xg5g8")
 [node name="Sprite2D" type="Sprite2D" parent="Bed"]
 position = Vector2(47, -273)
 scale = Vector2(0.305369, 0.305369)
-texture = ExtResource("3_62b6n")
+texture = ExtResource("4_rs4xw")
 
 [node name="Window" type="StaticBody2D" parent="."]
 position = Vector2(35, 126)
@@ -142,7 +141,6 @@ scale = Vector2(4.41766, 4.4599)
 modulate = Color(0.466667, 0.466667, 0.466667, 0.501961)
 position = Vector2(226, -336.063)
 scale = Vector2(0.0407407, 0.108937)
-texture = ExtResource("5_lk57d")
 
 [node name="Sprite2D" type="Sprite2D" parent="Window"]
 position = Vector2(-15, -237)
@@ -184,9 +182,9 @@ position = Vector2(792, 638)
 scale = Vector2(6.63242, 6.63242)
 
 [node name="Sprite2D" type="Sprite2D" parent="Study"]
-position = Vector2(-207, -133)
-scale = Vector2(0.328704, 0.328704)
-texture = ExtResource("9_c7pbv")
+position = Vector2(-283.908, -143.688)
+scale = Vector2(0.183366, 0.183366)
+texture = ExtResource("8_lk57d")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Study"]
 position = Vector2(-291, -146.5)
@@ -213,9 +211,9 @@ offset_right = 342.0
 offset_bottom = 323.0
 
 [node name="Sprite2D" type="Sprite2D" parent="Almira"]
-position = Vector2(-277, -307)
-scale = Vector2(0.643519, 0.643518)
-texture = ExtResource("4_rs4xw")
+position = Vector2(-274.524, -306.723)
+scale = Vector2(0.128953, 0.128953)
+texture = ExtResource("11_2hkqn")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Almira"]
 position = Vector2(-276.5, -313)
@@ -227,14 +225,6 @@ position = Vector2(0, 1)
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Almira/AlmiraDetect"]
 position = Vector2(-277, -289)
 shape = SubResource("CapsuleShape2D_rs4xw")
-
-[node name="Label" type="Label" parent="Almira"]
-offset_left = -327.0
-offset_top = -312.0
-offset_right = -197.0
-offset_bottom = -263.0
-text = "
-"
 
 [node name="Door" type="StaticBody2D" parent="."]
 position = Vector2(7, 4)
@@ -252,14 +242,6 @@ texture = ExtResource("14_2hkqn")
 visible = false
 position = Vector2(-104, -267)
 shape = SubResource("RectangleShape2D_2hkqn")
-
-[node name="Label" type="Label" parent="Door"]
-visible = false
-offset_left = -162.0
-offset_top = -333.0
-offset_right = -62.0
-offset_bottom = -310.0
-metadata/_edit_use_anchors_ = true
 
 [node name="DoorStopper" type="CollisionShape2D" parent="Door"]
 position = Vector2(-104, -278.5)

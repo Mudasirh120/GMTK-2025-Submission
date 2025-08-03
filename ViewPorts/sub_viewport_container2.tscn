@@ -14,8 +14,8 @@ handle_input_locally = false
 render_target_update_mode = 4
 
 [node name="Almira_scene" parent="SubViewport" instance=ExtResource("1_l2qep")]
-position = Vector2(267, 249)
-scale = Vector2(0.422766, 0.422766)
+position = Vector2(252, 223)
+scale = Vector2(0.476712, 0.476712)
 input_pickable = true
 
 [node name="Button" type="Button" parent="SubViewport"]
@@ -33,11 +33,6 @@ zoom = Vector2(1.5, 1.5)
 
 [node name="Area2D" type="Area2D" parent="."]
 position = Vector2(-437, 105)
-
-[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Area2D"]
-position = Vector2(552, 158)
-scale = Vector2(0.456186, 0.456186)
-polygon = PackedVector2Array(79, 7, 83, 39, 63, 92, 79, 149, 63, 205, 13, 215, -22, 175, -43, 77, -55, 24, -53, -49, -72, -170, 44, -189, 58, -120, 34.1833, -56.0107, 56, -12)
 
 [connection signal="pressed" from="SubViewport/Button" to="." method="_on_button_pressed"]
 [connection signal="input_event" from="Area2D" to="." method="_on_area_2d_input_event"]
