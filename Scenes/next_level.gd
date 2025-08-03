@@ -5,7 +5,6 @@ func _on_area_2d_body_entered(body: Node2D) -> void:
 		var currentFile = get_tree().current_scene.scene_file_path
 		print(currentFile)
 		var nextLevel = currentFile.to_int()+1
-		var nextLevelFile=BASE_PATH+str(2)+".tscn"
-		#var nextLevelFile=BASE_PATH+"1"+".tscn"
+		var nextLevelFile=BASE_PATH+str(nextLevel)+".tscn"
 		print(nextLevelFile)
 		get_tree().change_scene_to_file(nextLevelFile)

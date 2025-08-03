@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bs8dhux0f01mk"
-path="res://.godot/imported/Untitled.png-6053429fa065878497e1885a02691c74.ctex"
+uid="uid://61n6t4proau2"
+path="res://.godot/imported/Cupboard.png-fdfe8e753ad96a8a452228641707a829.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/Princess_Room/Untitled.png"
-dest_files=["res://.godot/imported/Untitled.png-6053429fa065878497e1885a02691c74.ctex"]
+source_file="res://Assets/Statue Room/Princess_Room/Cupboard.png"
+dest_files=["res://.godot/imported/Cupboard.png-fdfe8e753ad96a8a452228641707a829.ctex"]
 
 [params]
 

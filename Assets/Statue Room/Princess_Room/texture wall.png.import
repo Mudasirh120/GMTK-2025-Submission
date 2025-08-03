@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cbfvf0akwwhgd"
-path="res://.godot/imported/TableChair.png-9634ce9cf47581aad8b4e419e8183625.ctex"
+uid="uid://drxvgl751yr4t"
+path="res://.godot/imported/texture wall.png-fce951782f10ac35490b1af814eff601.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/Princess_Room/TableChair.png"
-dest_files=["res://.godot/imported/TableChair.png-9634ce9cf47581aad8b4e419e8183625.ctex"]
+source_file="res://Assets/Statue Room/Princess_Room/texture wall.png"
+dest_files=["res://.godot/imported/texture wall.png-fce951782f10ac35490b1af814eff601.ctex"]
 
 [params]
 

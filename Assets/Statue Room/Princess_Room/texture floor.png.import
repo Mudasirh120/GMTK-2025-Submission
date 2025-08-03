@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://du7g8l3j4ek70"
-path="res://.godot/imported/front_torch.png-023d7d21de98cbdd6d5c1b3286086a7a.ctex"
+uid="uid://cuxywbngblxgi"
+path="res://.godot/imported/texture floor.png-45175e7ee0ba163a42774c27d3ea1650.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/Princess_Room/front_torch.png"
-dest_files=["res://.godot/imported/front_torch.png-023d7d21de98cbdd6d5c1b3286086a7a.ctex"]
+source_file="res://Assets/Statue Room/Princess_Room/texture floor.png"
+dest_files=["res://.godot/imported/texture floor.png-45175e7ee0ba163a42774c27d3ea1650.ctex"]
 
 [params]
 

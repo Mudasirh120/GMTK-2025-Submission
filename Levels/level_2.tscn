@@ -1,6 +1,6 @@
 [gd_scene load_steps=22 format=3 uid="uid://c64thox0u2yse"]
 
-[ext_resource type="Texture2D" uid="uid://b2viijydbmjcy" path="res://Assets/Princess_Room/BackWall.png" id="1_bcgyv"]
+[ext_resource type="Texture2D" path="res://Assets/Princess_Room/BackWall.png" id="1_bcgyv"]
 [ext_resource type="Texture2D" uid="uid://bb8jd3r1jujwt" path="res://Assets/Corridor/floor.png" id="1_ll1bl"]
 [ext_resource type="Texture2D" uid="uid://cqh02o8jfplge" path="res://Assets/Corridor/pillar.png" id="3_fbld2"]
 [ext_resource type="Texture2D" uid="uid://bg5ep7uksqlp8" path="res://Assets/Corridor/hiddenwall.png" id="4_s275v"]
