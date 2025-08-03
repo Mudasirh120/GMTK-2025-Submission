@@ -23,6 +23,7 @@ scale = Vector2(0.501078, 0.501078)
 motion_mode = 1
 
 [node name="Camera2D" type="Camera2D" parent="Main/Player"]
+visible = false
 position = Vector2(-15.9656, 37.9182)
 scale = Vector2(1.9957, 1.9957)
 

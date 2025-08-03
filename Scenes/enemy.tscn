@@ -55,6 +55,9 @@ scale = Vector2(1.13793, 1.07273)
 text = "Health"
 
 [node name="Follow" type="NavigationAgent2D" parent="."]
+target_desired_distance = 80.0
+path_postprocessing = 1
+avoidance_enabled = true
 debug_enabled = true
 
 [node name="RayCast2D" type="RayCast2D" parent="."]
