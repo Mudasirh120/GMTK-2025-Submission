@@ -1,53 +1,53 @@
 extends CharacterBody2D
-enum EnemyState { PATROL, FOLLOW}
-var EnemTask:EnemyState = EnemyState.PATROL
-@onready var Agent:NavigationAgent2D=$Follow
-var direction:Vector2
-const SPEED= 100
-@onready var StartNode=$"../PatrolPoint1"
-@onready var EndNode=$"../PatrolPoint2"
-@onready var Ray:RayCast2D=$RayCast2D
-@onready var VisDetect:=$VisualDetect
-@onready var Player=get_parent().get_node('Player')
-var StartPoint:Vector2
-var EndPoint:Vector2
-var PlayerSeen:bool=false
-var PlayerHeard:bool=false
+enum EnemyState {PATROL, FOLLOW}
+var EnemTask: EnemyState = EnemyState.PATROL
+@onready var Agent: NavigationAgent2D = $Follow
+var direction: Vector2
+const SPEED = 100
+@onready var StartNode = $"../PatrolPoint1"
+@onready var EndNode = $"../PatrolPoint2"
+@onready var Ray: RayCast2D = $RayCast2D
+@onready var VisDetect := $VisualDetect
+@onready var Player = get_parent().get_node('Player')
+var StartPoint: Vector2
+var EndPoint: Vector2
+var PlayerSeen: bool = false
+var PlayerHeard: bool = false
 var distance
 func _ready() -> void:
-	StartPoint=StartNode.global_position
+	StartPoint = StartNode.global_position
 	global_position = StartPoint
-	EndPoint=EndNode.global_position
+	EndPoint = EndNode.global_position
 	Agent.target_position = EndPoint
-var dir:bool=false
+var dir: bool = false
 func Patrol():
 	if Agent.is_navigation_finished():
 		if dir:
-			Agent.target_position=StartPoint
-			dir=!dir
+			Agent.target_position = StartPoint
+			dir = !dir
 		else:
-			Agent.target_position=EndPoint
-			dir=!dir
+			Agent.target_position = EndPoint
+			dir = !dir
 func follow():
 	if !PlayerHeard:
-		Ray.target_position=(Player.global_position)
+		Ray.target_position = (Player.global_position)
 		Ray.force_raycast_update()
-		Agent.target_position=Ray.target_position
-		if Ray.is_colliding() || distance>=1500:
-			PlayerSeen=false
+		Agent.target_position = Ray.target_position
+		if Ray.is_colliding() || distance >= 1500:
+			PlayerSeen = false
 	else:
-		Agent.target_position =Ray.target_position
+		Agent.target_position = Ray.target_position
 func _physics_process(delta: float):
 	if Agent.is_navigation_finished():
-		PlayerHeard=false
-		PlayerSeen=false
-	distance=Agent.distance_to_target()
+		PlayerHeard = false
+		PlayerSeen = false
+	distance = Agent.distance_to_target()
 	if PlayerHeard || PlayerSeen:
-		EnemTask= EnemyState.FOLLOW
-	else :
-		EnemTask= EnemyState.PATROL
+		EnemTask = EnemyState.FOLLOW
+	else:
+		EnemTask = EnemyState.PATROL
 	if PlayerSeen:
-		PlayerHeard=false
+		PlayerHeard = false
 	
 	match EnemTask:
 		EnemyState.PATROL:
@@ -60,21 +60,15 @@ func _physics_process(delta: float):
 	move_and_slide()
 func _on_visual_detect_body_entered(body: Node2D) -> void:
 	if body.is_in_group("Player"):
-		Player=body
-		PlayerSeen=true
-		PlayerHeard=false
+		Player = body
+		PlayerSeen = true
+		PlayerHeard = false
 func _on_sound_detect_area_entered(area: Area2D):
 	if area == Player.get_node("Sound"):
 		if !PlayerSeen:
-			Ray.target_position=Player.global_position
-			PlayerHeard=true
+			Ray.target_position = Player.global_position
+			PlayerHeard = true
 	
-
-
-
-
-
-
 
 #
 #

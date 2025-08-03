@@ -1,4 +1,5 @@
 extends CharacterBody2D
+@onready var sprite:Sprite2D=$Sprite2D
 @onready var key:Sprite2D=$key
 @onready var RunningTimer:Timer = $RunningTimer
 @onready var StaminaText:Label = $Stamina
@@ -48,6 +49,10 @@ func _physics_process(delta: float) -> void:
 			soun.scale*=3
 		direction = Input.get_vector("move_left",'move_right','move_forward',"move_backward")
 		if direction:
+			if direction.x<0:
+				sprite.flip_h=true
+			else:
+				sprite.flip_h=false
 			soun.disabled=false
 		if Input.is_action_pressed("run"):
 			if direction != Vector2():
