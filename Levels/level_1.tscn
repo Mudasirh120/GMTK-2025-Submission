@@ -205,10 +205,10 @@ scale = Vector2(4.78282, 4.78282)
 
 [node name="SubViewportContainer" parent="Almira" instance=ExtResource("5_2hkqn")]
 visible = false
-offset_left = -259.0
-offset_top = -267.0
-offset_right = 342.0
-offset_bottom = 323.0
+offset_left = 589.192
+offset_top = -345.403
+offset_right = 1101.19
+offset_bottom = 166.597
 
 [node name="Sprite2D" type="Sprite2D" parent="Almira"]
 position = Vector2(-274.524, -306.723)
